@@ -38,7 +38,7 @@ Hi {}, my name is {}! I am a group manager managed by [my master](t.me/aflky02).
 You can find the list of available commands with /help.
 """,
 	"help_text": """
-Hey! My name is *Dirty*. I am a group management bot, here to help you get around and keep the order in your groups!
+Hey! My name is FortizersWatcher. I am a group management bot, here to help you get around and keep the order in your groups!
 I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
 
 *Main commands available:*
@@ -325,8 +325,8 @@ When marked as AFK, any mentions will be replied to with a message to say you're
 	"*Berhasil mencadangan untuk:*\nNama chat: `{}`\nID chat: `{}`\nPada: `{}`\n\nNote: cadangan ini khusus untuk bot ini, jika di import ke bot lain maka catatan dokumen, video, audio, voice, dan lain-lain akan hilang": "*Successfully backed up for:*\nChat: `{}`\nChat ID: `{}`\nAt: `{}`\n\nNote: This backup is specific to this bot, if it is imported to another bot then document, video, audio, voice, and other notes will be lost",
 	"backups_help": """
 *Admin only:*
- - /import: reply to a group butler/marie/rose/emilia/dirty backup file to import as much as possible, making the transfer super simple!
-Note that files/photos from other bots can't be imported due to telegram restrictions. Except for Dirty backup it self.
+ - /import: reply to a group butler/marie/rose/emilia/fortizers backup file to import as much as possible, making the transfer super simple!
+Note that files/photos from other bots can't be imported due to telegram restrictions. Except for FortizersWatcher backup it self.
  - /export: export group data, can be done anytime.
 """,
 	"*Data yang tidak dapat di import*": "*Data which can't be imported*",

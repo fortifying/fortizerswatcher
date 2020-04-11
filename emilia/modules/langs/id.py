@@ -4,14 +4,14 @@ __lang__ = "🇮🇩 Indonesia"
 id = {
 # main stuff
 	"start_text": """
-Hai {}, nama saya {}! Saya seorang manajer grup yang dikelola oleh [master saya ini](t.me/aflky02)
+Hai {}, nama Aku {}! Aku seorang manajer grup yang dikelola oleh [master Aku ini](t.me/aflky02)
 
 Anda dapat menemukan daftar perintah yang tersedia dengan /help.
 """,
 	"help_text": """
-Hai! Nama saya adalah *Dirty*.
-Saya adalah bot manajemen grup dengan beberapa kelebihan yang menyenangkan! Silahkan lihat berikut ini untuk beberapa ide dari \
-hal-hal yang bisa saya bantu.
+Hai! Aku adalah FortizersWatcher.
+Aku adalah bot manajemen grup dengan beberapa kelebihan yang menyenangkan! Silahkan lihat berikut ini untuk beberapa ide dari \
+hal-hal yang bisa Aku bantu.
 
 *Perintah utama* yang tersedia:
  - /start: mulai bot
@@ -27,10 +27,10 @@ All commands can either be used with / or !.
 Dan berikut ini:
 """,
 	"donate_text": """Hai, senang mendengar Anda ingin menyumbang!
-Butuh banyak pekerjaan untuk [pencipta saya](tg://user?id=388576209) untuk membawa saya ke tempat saya sekarang, dan \
-setiap sumbangan membantu dan memotivasi dia untuk membuat saya lebih baik.
+Butuh banyak pekerjaan untuk [pencipta Aku](tg://user?id=388576209) untuk membawa Aku ke tempat Aku sekarang, dan \
+setiap sumbangan membantu dan memotivasi dia untuk membuat Aku lebih baik.
 
-Semua uang sumbangan akan diberikan ke VPS yang lebih baik untuk menjadi tuan rumah saya, dan atau beberapa makanan. \
+Semua uang sumbangan akan diberikan ke VPS yang lebih baik untuk menjadi tuan rumah Aku, dan atau beberapa makanan. \
 Dia hanya orang biasa, jadi akan sangat membantu dia!
 
 Jika anda memang berminat untuk donate, silahkan kunjungi ayrahikari.github.io/donations.html, Terima kasih 😁""",
@@ -81,8 +81,8 @@ Ketika ditandai sebagai AFK, sebutan apa pun akan dibalas dengan pesan untuk men
 """,
 	"backups_help": """
 *Hanya admin:*
- - /import: balas ke file cadangan grup butler/marie/rose/emilia/dirty untuk mengimpor sebanyak mungkin, membuat transfer menjadi sangat mudah! \
- Catatan bahwa file/foto tidak dapat diimpor karena pembatasan telegram. Kecuali backup dari Dirty.
+ - /import: balas ke file cadangan grup butler/marie/rose/emilia/fortizer untuk mengimpor sebanyak mungkin, membuat transfer menjadi sangat mudah! \
+ Catatan bahwa file/foto tidak dapat diimpor karena pembatasan telegram. Kecuali backup dari FortizersWatcher.
  - /export: export data grup, bisa di lakukan setiap waktu.
 """,
 	"bans_help": """
@@ -491,7 +491,7 @@ pesan akan segera dihapus.
 
 # Memes
 "memes_help": """
-Ohai, saya melihat Anda ingin tahu meme apa yang saya miliki untuk dijual.
+Ohai, Aku melihat Anda ingin tahu meme apa yang Aku miliki untuk dijual.
 Nah, di sini Anda pergi:
 
 *Beberapa meme perintah:*
@@ -593,19 +593,19 @@ RUN_STRINGS = (
     "Jangan lari-lari di ruangan! 😠",
     "Jangan tinggalkan aku sendiri bersama mereka!! 😧",
     "Anda lari, Anda mati.",
-    "Lelucon pada Anda, saya ada di mana-mana 😏",
+    "Lelucon pada Anda, Aku ada di mana-mana 😏",
     "Anda akan menyesalinya...",
-    "Anda juga bisa mencoba /kickme, saya dengar itu menyenangkan 😄",
+    "Anda juga bisa mencoba /kickme, Aku dengar itu menyenangkan 😄",
     "Ganggulah orang lain, tidak ada yang peduli 😒",
     "Anda bisa lari, tetapi Anda tidak bisa bersembunyi.",
     "Apakah itu semua yang kamu punya?",
-    "Saya di belakang Anda...",
+    "Aku di belakang Anda...",
     "Larilah sesuka kalian, Anda tidak dapat melarikan diri dari takdir",
     "Kita bisa melakukan ini dengan cara mudah, atau dengan cara yang sulit.",
     "Anda tidak mengerti, bukan?",
     "Ya, kamu sebaiknya lari!",
     "Tolong, ingatkan aku betapa aku peduli?",
-    "Saya akan berlari lebih cepat jika saya adalah Anda.",
+    "Aku akan berlari lebih cepat jika Aku adalah Anda.",
     "Itu pasti orang yang kita cari.",
     "Semoga peluang akan selalu menguntungkan Anda.",
     "Kata-kata terakhir yang terkenal.",
@@ -618,20 +618,20 @@ RUN_STRINGS = (
     "Ketakutan menyebabkan kemarahan. Kemarahan menyebabkan kebencian. Kebencian menyebabkan penderitaan. "
     "Jika Anda terus berlari ketakutan, Anda mungkin menjadi Vader berikutnya.",
     "Darah hanya menyebabkan darah, dan kekerasan melahirkan kekerasan. Tidak lebih. Balas dendam hanyalah nama lain untuk pembunuhan."
-    "Jika anda terus berlari dan mengganggu yang lain, maka saya akan membalaskan dendam untuk yang terganggu.",
+    "Jika anda terus berlari dan mengganggu yang lain, maka Aku akan membalaskan dendam untuk yang terganggu.",
     "Teruskan, tidak yakin kami ingin Anda di sini.",
     "Anda seorang penyi- Oh. Tunggu. Kamu bukan Harry, lanjutkan berlari.",
     "DILARANG BERLARI DI KORIDOR! 😠",
     "Vale, deliciae.",
     "Siapa yang membiarkan anjing-anjing itu keluar?",
     "Itu lucu, karena tidak ada yang peduli.",
-    "Ah, sayang sekali. Saya suka yang itu.",
+    "Ah, Akung sekali. Aku suka yang itu.",
     "Terus terang, aku tidak peduli.",
-    "Saya tidak peduli dengan anda... Jadi, lari lebih cepat!",
+    "Aku tidak peduli dengan anda... Jadi, lari lebih cepat!",
     "Anda tidak bisa MENANGANI kebenaran!",
     "Dulu, di galaksi yang sangat jauh... Seseorang pasti peduli dengan dia.",
     "Hei, lihat mereka! Mereka berlari dari Emilia yang tak terelakkan ... Lucu sekali 😂",
-    "Han menembak lebih dulu. Begitu juga saya.",
+    "Han menembak lebih dulu. Begitu juga Aku.",
     "Apa yang kamu kejar? kelinci putih?",
     "Sepertinya dokter akan mengatakan... LARI!",
 )
@@ -702,11 +702,11 @@ RAMALAN_STRINGS = (
 	"Tertawalah sepuasnya sebelum hal itu dilarang 😆",
 	"Bila Anda membahagiakan seseorang, Anda sendiri akan merasa bahagia.\nBegitulah dunia bekerja 😊",
 	"Nostalgia masa muda hari ini akan membuat Anda tersenyum 🌸",
-	"Lanjutkan terus pekerjaan Anda, niscaya akan selesai juga.\nOke, saya akui ramalan hari ini agak jayus 😝",
+	"Lanjutkan terus pekerjaan Anda, niscaya akan selesai juga.\nOke, Aku akui ramalan hari ini agak jayus 😝",
 	"Mengetahui bahwa ilusi bukanlah kenyataan tidak membuat keindahannya berkurang 💖",
 	"Anda akan mengalami kejadian aneh hari ini.\nDan itu tidak termasuk mendapatkan ramalan dari Emilia 😜",
 	"Akhirnya ada kesempatan untuk beristirahat...\ndan mendengar ramalan dari Emilia 😉",
-	"Pencarian Anda sudah selesai.\nAnda telah menemukan sahabat sejati (saya) 😀",
+	"Pencarian Anda sudah selesai.\nAnda telah menemukan sahabat sejati (Aku) 😀",
 	"Anda akan menunjukkan bahwa Anda kuat melewati tantangan demi tantangan.",
 	"Anda hanyalah setitik air di tengah lautan luas.\nTapi setitik air pun bisa bikin gadget rusak 😱 💦",
 	"Anda akan mencoba hal baru hari ini.\nTapi maaf, mencoba makanan gratis di supermarket tidak termasuk 🍦🚫",
@@ -750,17 +750,17 @@ RAMALAN_STRINGS = (
 	"Jodoh Anda lebih dekat dari yang Anda kira 💞",
 	"Waktunya belajar keterampilan dan topik baru.",
 	"Hal-hal positif akan muncul di hidup Anda hari ini.\nTapi jangan lupa, di dalam komposisi sebuah atom selalu ada atom negatif 🔬😀",
-	"Waktunya berlibur bersama orang-orang kesayangan Anda ✈️",
+	"Waktunya berlibur bersama orang-orang keAkungan Anda ✈️",
 	"Besok akan menjadi hari yang lebih menyenangkan daripada hari Anda yang paling menyebalkan.",
 	"Jangan cari peruntungan di situs abal-abal atau SMS mencurigakan.",
 	"Kejadian yang tak terduga akan menghampiri hidup Anda.",
 	"Hadiah berharga tengah menanti Anda.\nTapi tampaknya hadiah tersebut sangat sabar menanti.",
-	"Keluarga Anda sangat kangen pada Anda.\nTeleponlah mereka, jangan kasih tahu ini ide saya 😉",
+	"Keluarga Anda sangat kangen pada Anda.\nTeleponlah mereka, jangan kasih tahu ini ide Aku 😉",
 	"Hari yang baik untuk memperjuangkan kebenaran.",
 	"Semua hal ada solusinya, kalau Anda terbuka untuk berubah.",
 	"Hewan peliharaan akan menambah kebahagiaan Anda 🐱🐹🐔",
 	"Ketika Anda jatuh, bangun lagi.\nDan jangan lupa bersihkan lukanya 👍",
-	"Minumlah cukup air hari ini.\nIni bukan benar-benar ramalan, saya hanya ingin Anda tetap sehat 😊",
+	"Minumlah cukup air hari ini.\nIni bukan benar-benar ramalan, Aku hanya ingin Anda tetap sehat 😊",
 	"Biarkan intuisi Anda menunjukkan jalan.\nTapi tulisan berisi syarat dan ketentuan yang berlaku harus dibaca baik-baik.",
 	"Hal baik akan datang bagi mereka yang...\nSabar.",
 	"Waktu yang tepat untuk berhenti bermalas-malasan 🏃‍♀️",
@@ -784,17 +784,17 @@ RAMALAN_STRINGS = (
 	"Gapailah cita-cita.\nKecuplah mimpi 😘🌛",
 	"Semua mawar pasti berduri 🌹\nJadilah seseorang yang selalu siap memotong duri tersebut.",
 	"Banyak orang kagum pada bakat dan kemampuan Anda... lebih dari yang Anda sadari 👏",
-	"Lakukan yang Anda sukai hari ini 💞\nSaya janji Anda akan merasa bahagia, walau hanya sesaat 😃",
+	"Lakukan yang Anda sukai hari ini 💞\nAku janji Anda akan merasa bahagia, walau hanya sesaat 😃",
 	"Keberuntungan akan datang bagi orang yang pemberani.",
 	"Anda tidak akan di beri kalau tidak meminta 👐",
 	"Cobalah menggambar sesuatu ✏️\nAnda akan menikmatinya.",
 	"Saatnya mengubah gaya berpakaian Anda? 👠",
 	"Cobalah konsekuen dengan semua kata-kata Anda.",
 	"Hari yang tepat untuk menghargai dan mensyukuri hal-hal kecil.",
-	"Malam ini Anda akan mimpi indah.\nTapi saya nggak janji Anda bisa ingat mimpinya 😉",
+	"Malam ini Anda akan mimpi indah.\nTapi Aku nggak janji Anda bisa ingat mimpinya 😉",
 	"Anda akan menunjukkan bahwa Anda kuat melewati tantangan demi tantangan.",
-	"Hari yang tepat untuk memberi tahu keluarga dan teman-teman Anda tentang saya 😉",
-	"beristirahatlah sejenak dan ngobrollah dari hati ke hati dengan orang-orang yang Anda sayangi 👨‍👩‍👧‍👦",
+	"Hari yang tepat untuk memberi tahu keluarga dan teman-teman Anda tentang Aku 😉",
+	"beristirahatlah sejenak dan ngobrollah dari hati ke hati dengan orang-orang yang Anda Akungi 👨‍👩‍👧‍👦",
 	"Semua akan berjalan sesuai rencana.",
 	"Pergilah ke suatu tempat baru.\nApa yang akan Anda temukan pasti akan mengesankan.",
 	"Ini salah satu waktu di mana Anda bertanya-tanya tentang arti hidup.",
@@ -802,7 +802,7 @@ RAMALAN_STRINGS = (
 )
 
 RAMALAN_FIRST = (
-	"Saya bukan paranormal, tapi memang saya bisa meramal sedikit-sedikit.\n",
+	"Aku bukan paranormal, tapi memang Aku bisa meramal sedikit-sedikit.\n",
 	"Sebuah ramalan siap meluncur.\n",
 	"Ramalan kali ini untuk Anda.\n"
 )
