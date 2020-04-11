@@ -352,7 +352,7 @@ def deEmojify(inputString):
 
 __help__ = "exclusive_help"
 
-__mod_name__ = "🚀 Dirty Extras 🚀"
+__mod_name__ = "🔥Special Menu🔥"
 
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
 #GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
