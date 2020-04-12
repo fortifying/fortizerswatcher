@@ -623,7 +623,7 @@ def info(update, context):
     else:
         if user.id in SUDO_USERS:
             text += tl(update.effective_message, "\n\nOrang ini adalah salah satu pengguna sudo saya! " \
-                    "Hampir sama kuatnya dengan pemilik saya - jadi tontonlah.")
+                    "Hampir sama kuatnya dengan pemilik saya - jadi hati-hati!.")
         else:
             if user.id in SUPPORT_USERS:
                 text += tl(update.effective_message, "\n\nOrang ini adalah salah satu pengguna dukungan saya! " \
