@@ -297,11 +297,11 @@ When marked as AFK, any mentions will be replied to with a message to say you're
 							   "if it still does not work, report it to the bot maker for "
 							   "make me better! Thanks! 🙂",
 	"Kesalahan terjadi saat memulihkan data Anda. Prosesnya mungkin tidak lengkap. Jika "
-						   "Anda mengalami masalah dengan ini, pesan @Aflky02 dengan file cadangan Anda, jadi "
+						   "Anda mengalami masalah dengan ini, pesan @fortifying dengan file cadangan Anda, jadi "
 						   "masalah bisa di-debug. Pemilik saya akan dengan senang hati membantu, dan setiap bug "
 						   "dilaporkan membuat saya lebih baik! Terima kasih! 🙂": 
 	"An exception occured while restoring your data. The process may not be complete. If "
-						   "you have a problem with this, contact @Aflky02 with your backup file, so "
+						   "you have a problem with this, contact @fortifying with your backup file, so "
 						   "issue can be debugged. My owner will be happy to help, and every bug "
 						   "reported makes me better! Thanks! 🙂",
 	"Cadangan sepenuhnya dikembalikan pada *{}*. Selamat datang kembali! 😀": "Backup fully imported in *{}*. Welcome back! 😀",
