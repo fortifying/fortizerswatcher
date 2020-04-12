@@ -984,7 +984,7 @@ Setting the log channel is done by:
 	"\nNama pengguna: @{}": "\nUsername: @{}",
 	"\nTautan pengguna permanen: {}": "\nPermanent user link: {}",
 	"\n\nOrang ini adalah pemilik saya - saya tidak akan pernah melakukan apa pun terhadap mereka!": "\n\nThis person is my owner - I would never do anything against them!",
-	"\n\nOrang ini adalah salah satu pengguna sudo saya! Hampir sama kuatnya dengan pemilik saya - jadi tontonlah.": "\nThis person is one of my sudo users! Nearly as powerful as my owner - so watch it.",
+	"\n\nOrang ini adalah salah satu pengguna sudo saya! Hampir sama kuatnya dengan pemilik saya - jadi hati-hati!.": "\nThis person is one of my sudo users! Nearly as powerful as my owner - so watch it.",
 	"\n\nOrang ini adalah salah satu pengguna dukungan saya! Tidak sekuat pengguna sudo, tetapi masih dapat menyingkirkan Anda dari peta.": "\nThis person is one of my support users! Not quite a sudo user, but can still gban you off the map.",
 	"\n\nOrang ini telah dimasukkan dalam daftar putih! Itu berarti saya tidak diizinkan untuk melarang/menendang mereka.": "\nThis person has been whitelisted! That means I'm not allowed to ban/kick them.",
 	"Selalu ada waktu banned untukku!": "Its always banhammer time for me!",
