@@ -23,6 +23,7 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 from zalgo_text import zalgo
 
+from deeppyer import deepfry
 from emilia.modules.disable import DisableAbleCommandHandler
 from emilia import dispatcher, spamcheck
 from emilia.modules.languages import tl
@@ -98,6 +99,7 @@ def deepfryer(update, context):
         image = Image.open(io.BytesIO(photodata))
     elif data2:
         sticker = context.bot.get_file(data2.file_id)
+        sticker = bot.get_file(data2.file_id)
         sticker.download('sticker.png')
         image = Image.open("sticker.png")
 
@@ -111,6 +113,7 @@ def deepfryer(update, context):
 
 async def process_deepfry(image: Image, reply: Message, bot: Bot):
     bot = context.bot
+    # DEEPFRY IT
     image = await deepfry(img=image,
                           token=DEEPFRY_TOKEN,
                           url_base='westeurope')
@@ -396,6 +399,7 @@ VAPOR_HANDLER = DisableAbleCommandHandler("vapor", vapor, pass_args=True)
 ZALGO_HANDLER = DisableAbleCommandHandler("zalgofy", zalgotext, pass_args=True)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout, pass_args=True)
 CHINESEMEMES_HANDLER = DisableAbleCommandHandler("dllm", chinesememes, pass_args=True)
+DEEPFRY_HANDLER = DisableAbleCommandHandler("deepfry", deepfryer, admin_ok=True)
 
 dispatcher.add_handler(SHOUT_HANDLER)
 dispatcher.add_handler(OWO_HANDLER)
