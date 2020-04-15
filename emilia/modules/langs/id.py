@@ -4,7 +4,7 @@ __lang__ = "🇮🇩 Indonesia"
 id = {
 # main stuff
 	"start_text": """
-Hai {}, nama Aku {}! Aku seorang manajer grup yang dikelola oleh [master Aku ini](t.me/aflky02)
+Hai {}, nama Aku {}! Aku seorang manajer grup yang dikelola oleh [Tuan saya](t.me/fortifying)
 
 Anda dapat menemukan daftar perintah yang tersedia dengan /help.
 """,
