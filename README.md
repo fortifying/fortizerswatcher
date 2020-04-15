@@ -1,4 +1,4 @@
-# Dirty
+# FortizersWatcher
 ----------
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
@@ -6,7 +6,7 @@ A modular telegram Python bot running on python3 with an sqlalchemy database.
 Originally a simple group management bot with multiple admin features, it has evolved into becoming 
 a basis for modular bots aiming to provide simple plugin expansion via a simple drag and drop.
 
-Can be found as [Dirty](https://t.me/DirtyReget_Bot)
+Can be found as [Dirty](https://t.me/fortifyingbot)
 
 Based on [Emilia Hikari](https://github.com/AyraHikari/EmiliaHikari)
 
@@ -27,11 +27,3 @@ Based on [Emilia Hikari](https://github.com/AyraHikari/EmiliaHikari)
 If you want to use some files of this repo, always make sure to give the proper credits to the 
 creators of each module, but please do not remove the credits to me or placed by me in the modules.
 ```
-----------
-
-## Installing
-----------
-### The Easy Way
-
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
