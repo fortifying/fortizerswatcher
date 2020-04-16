@@ -77,6 +77,57 @@ def owo(update, context):
 
 @spamcheck
 @run_async
+def deepfryer(update, context):
+    message = update.effective_message
+    chat = update.effective_chat  # type: Optional[Chat]
+    if message.reply_to_message:
+        data = message.reply_to_message.photo
+        data2 = message.reply_to_message.sticker
+    else:
+        data = []
+        data2 = []
+
+    # check if message does contain media and cancel when not
+    if not data and not data2:
+        message.reply_text(tl(chat.id, "What am I supposed to do with this?!"))
+        return
+
+    # download last photo (highres) as byte array
+    if data:
+        photodata = data[len(data) - 1].get_file().download_as_bytearray()
+        image = Image.open(io.BytesIO(photodata))
+    elif data2:
+        sticker = context.bot.get_file(data2.file_id)
+        sticker.download('sticker.png')
+        image = Image.open("sticker.png")
+
+    # the following needs to be executed async (because dumb lib)
+    bot = context.bot
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(
+        process_deepfry(image, message.reply_to_message, bot))
+    loop.close()
+
+
+async def process_deepfry(image: Image, reply: Message, bot: Bot):
+    bot = context.bot
+    image = await deepfry(img=image,
+                          token=DEEPFRY_TOKEN,
+                          url_base='westeurope')
+
+    bio = BytesIO()
+    bio.name = 'image.jpeg'
+    image.save(bio, 'JPEG')
+
+    # send it back
+    bio.seek(0)
+    reply.reply_photo(bio)
+    if Path("sticker.png").is_file():
+        os.remove("sticker.png")
+
+
+@spamcheck
+@run_async
 def stretch(update, context):
     message = update.effective_message
     if not message.reply_to_message:
@@ -357,3 +408,4 @@ dispatcher.add_handler(BMOJI_HANDLER)
 dispatcher.add_handler(FORBES_HANDLER)
 dispatcher.add_handler(CHINESEMEMES_HANDLER)
 dispatcher.add_handler(MOCK_HANDLER)
+dispatcher.add_handler(DEEPFRY_HANDLER)
