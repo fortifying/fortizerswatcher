@@ -33,7 +33,7 @@ Available commands are:
 # __main__
 	"Ada yang bisa saya bantu? 😊": "Is there anything I can help? 😊",
 	"start_text": """
-Hi {}, my name is {}! I am a group manager managed by [my master](t.me/aflky02).
+Hi {}, my name is {}! I am a group manager managed by [my master](t.me/fortifying).
 
 You can find the list of available commands with /help.
 """,
