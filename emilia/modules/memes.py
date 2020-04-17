@@ -113,7 +113,6 @@ def deepfryer(update, context):
 
 async def process_deepfry(image: Image, reply: Message, bot: Bot):
     bot = context.bot
-    # DEEPFRY IT
     image = await deepfry(img=image,
                           token=DEEPFRY_TOKEN,
                           url_base='westeurope')
