@@ -99,7 +99,6 @@ def deepfryer(update, context):
         image = Image.open(io.BytesIO(photodata))
     elif data2:
         sticker = context.bot.get_file(data2.file_id)
-        sticker = bot.get_file(data2.file_id)
         sticker.download('sticker.png')
         image = Image.open("sticker.png")
 
