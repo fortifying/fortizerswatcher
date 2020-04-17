@@ -4,7 +4,7 @@ FROM dasbastard/jnckdclxvi:latest
 #
 # Clone repo and prepare working directory
 #
-RUN git clone https://github.com/fortifying/dirtyx.git /root/emilia
+RUN git clone https://github.com/fortifying/fortizerswatcher.git /root/emilia
 RUN mkdir /root/emilia/bin/
 WORKDIR /root/emilia/
 RUN pip3 install tswift
