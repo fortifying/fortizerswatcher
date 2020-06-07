@@ -13,6 +13,7 @@ Pillow
 alphabet_detector
 urbandict
 bs4
+telegram.ext
 lxml
 nltk
 hurry.filesize
