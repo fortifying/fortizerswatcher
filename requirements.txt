@@ -18,9 +18,6 @@ nltk
 hurry.filesize
 PyAML
 markdown2
-tswift
-gTTS
-pynewtonmath
 spongemock
 zalgo-text
 aiohttp
