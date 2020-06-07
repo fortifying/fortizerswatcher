@@ -13,12 +13,14 @@ Pillow
 alphabet_detector
 urbandict
 bs4
-telegram.ext
 lxml
 nltk
 hurry.filesize
 PyAML
 markdown2
+tswift
+gTTS
+pynewtonmath
 spongemock
 zalgo-text
 aiohttp
