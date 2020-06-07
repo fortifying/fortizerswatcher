@@ -1,5 +1,5 @@
 # We're using prebuilt docker images
-FROM dasbastard/jnckdclxvi:latest
+FROM dasbastard/arch:latest
 
 #
 # Clone repo and prepare working directory
