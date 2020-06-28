@@ -17,6 +17,8 @@ lxml
 nltk
 hurry.filesize
 PyAML
+beautifulsoup4~=4.9.1
+PyYAML~=5.3.1
 markdown2
 spongemock
 zalgo-text
