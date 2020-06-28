@@ -12,7 +12,7 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, run_async
 from telegram.error import BadRequest
  
-from hitsuki import dispatcher, LOGGER, spamcheck
+from emilia import dispatcher, LOGGER, spamcheck
 from hitsuki.modules.languages import tl
  
 # DO NOT DELETE THIS, PLEASE.
