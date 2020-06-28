@@ -78,6 +78,7 @@ if ENV:
 	BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADBAAD4kYAAuOnXQW5LUN400QOBQI')
 	# ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
 	CUSTOM_CMD = os.environ.get('CUSTOM_CMD', False)
+	LASTFM_API_KEY = os.environ.get('LASTFM_API_KEY', "")
 	TEMPORARY_DATA = os.environ.get('TEMPORARY_DATA', None)
 	SPAMWATCH_TOKEN = os.environ.get('SPAMWATCH_TOKEN', None)
 	WALL_API = os.environ.get('WALL_API', None)
@@ -136,6 +137,7 @@ else:
 	DONATION_LINK = Config.DONATION_LINK
 	LOAD = Config.LOAD
 	NO_LOAD = Config.NO_LOAD
+	LASTFM_API_KEY = Config.LASTFM_API_KEY
 	DEL_CMDS = Config.DEL_CMDS
 	STRICT_GBAN = Config.STRICT_GBAN
 	WORKERS = Config.WORKERS
