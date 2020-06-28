@@ -489,6 +489,16 @@ pesan akan segera dihapus.
 `Google Drive - MediaFire - SourceForge`
 """,
 
+# LastFM
+"lastfm_help": """
+Bagikan lagu yang kamu dengar dengan menggunakan modul ini!
+ 
+*Perintah yang tersedia:*
+ - /setuser <username>: Untuk mengatur username LASTFM.
+ - /clearuser: menghapus username yang telah diatur di database bot ini.
+ - /lastfm: untuk menampilkan scrobble yang tersedia dari username LASTFM anda.
+""",
+
 # Memes
 "memes_help": """
 Ohai, Aku melihat Anda ingin tahu meme apa yang Aku miliki untuk dijual.
