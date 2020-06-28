@@ -25,4 +25,4 @@ tldextract
 pytz
 kbbi
 speedtest-cli
-rapidjson
+python-rapidjson>=0.9.1
