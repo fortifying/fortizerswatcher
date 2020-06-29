@@ -20,6 +20,8 @@ emilia/modules/sql/__pycache__
 .profile
 .pgpass
 .python_history
+.enrollment
+.pyache
 backupdb
 hourly_backupdb
 *-Emilia.backup

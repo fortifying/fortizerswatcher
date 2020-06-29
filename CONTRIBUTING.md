@@ -10,6 +10,8 @@ Contributions are very welcome! Here are some guidelines on how the project is d
 
 - More complex pieces of code should be commented for future reference.
 
+****** 
+
 ### Structure
 
 There are a few self-imposed rules on the project structure, to keep the project as tidy as possible.
