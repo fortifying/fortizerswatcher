@@ -5,11 +5,11 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Inpu
 from telegram.ext import CallbackQueryHandler
 from telegram.error import BadRequest
 
-from emilia import dispatcher
-import emilia.modules.sql.welcome_sql as sql
-from emilia.modules.languages import tl
+from fortizers import dispatcher
+import fortizers.modules.sql.welcome_sql as sql
+from fortizers.modules.languages import tl
 
-from emilia.modules.helper_funcs.alternate import send_message
+from fortizers.modules.helper_funcs.alternate import send_message
 
 
 verify_code = ["🙏", "👈", "👉", "👇", "👆", "❤️", "🅰️", "🅱️", "0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]

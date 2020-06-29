@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText, Boolean, Integer
 
-from emilia.modules.sql import BASE, SESSION
+from fortizers.modules.sql import BASE, SESSION
 
 
 class CleanerBlueText(BASE):

@@ -19,9 +19,9 @@ en = {
 	"Bahasa telah di ubah ke {}!": "Language changed to {}!",
 	"Bahasa di *{}* saat ini adalah:\n{}.\n\nPilih bahasa:": "Current language in *{}* is:\n{}.\n\nSelect language:",
 	"obrolan saat ini": "current in this chat",
-	"language_help": """Not every group speaks indonesian; some groups would rather have Emilia respond in their own language.
+	"language_help": """Not every group speaks indonesian; some groups would rather have my respond in their own language.
 
-This is where translations come in; you can change most of Emilia's replies to be in the language of your choice!
+This is where translations come in; you can change most of my replies to be in the language of your choice!
 
 Available languages are:
 - 🇮🇩 Indonesia
@@ -292,8 +292,8 @@ When marked as AFK, any mentions will be replied to with a message to say you're
 # Backups
 	"Coba unduh dan unggah ulang file seperti Anda sendiri sebelum mengimpor - yang ini sepertinya rusak!": "Try downloading and reuploading the file as yourself before importing - this one seems to be iffy!",
 	"File cadangan tidak valid!": "Invalid backup file!",
-	"Telah terjadi kesalahan dalam import backup Emilia!\nGabung ke [Grup support](https://t.me/EmiliaOfficial) kami untuk melaporkan dan mengatasi masalah ini!\n\nTerima kasih": "An exception occured while restoring your data from Emilia backup!\nJoin our [Group support](https://t.me/EmiliaOfficial) for reporting and troubleshooting this problem!\n\nThank you",
-	"Telah terjadi kesalahan dalam import backup Rose!\nGabung ke [Grup support](https://t.me/EmiliaOfficial) kami untuk melaporkan dan mengatasi masalah ini!\n\nTerima kasih": "An exception occured while restoring your data from Rose backup!\nJoin our [Group support](https://t.me/EmiliaOfficial) for reporting and troubleshooting this problem!\n\nThank you",
+	"Telah terjadi kesalahan dalam import backup Fortizers!\nGabung ke [Grup support](https://t.me/gabutersllc) kami untuk melaporkan dan mengatasi masalah ini!\n\nTerima kasih": "An exception occured while restoring your data from Fortizers backup!\nJoin our [Group support](https://t.me/gabutersllc) for reporting and troubleshooting this problem!\n\nThank you",
+	"Telah terjadi kesalahan dalam import backup Rose!\nGabung ke [Grup support](https://t.me/gabutersllc) kami untuk melaporkan dan mengatasi masalah ini!\n\nTerima kasih": "An exception occured while restoring your data from Rose backup!\nJoin our [Group support](https://t.me/gabutersllc) for reporting and troubleshooting this problem!\n\nThank you",
 	"Ada lebih dari satu grup di file ini, dan tidak ada yang memiliki id obrolan yang sama dengan grup ini - bagaimana cara memilih apa yang akan diimpor?": "Theres more than one group here in this file, and none have the same chat id as this group - how do I choose what to import?",
 	"Backup berasal chat lain, Saya tidak bisa mengembalikan chat lain kedalam chat *{}*": "Backup comes from another chat, I can't return another chat to chat *{}*",
 	"Backup berasal chat lain, Saya tidak bisa mengembalikan chat lain kedalam chat ini": "Backup comes from another chat, I can't return another chat to this chat",

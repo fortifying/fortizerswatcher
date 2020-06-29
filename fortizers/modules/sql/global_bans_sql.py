@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText, Integer, String, Boolean
 
-from emilia.modules.sql import BASE, SESSION
+from fortizers.modules.sql import BASE, SESSION
 
 
 class GloballyBannedUsers(BASE):

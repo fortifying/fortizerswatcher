@@ -2,7 +2,7 @@ import threading
  
 from sqlalchemy import Column, String
  
-from emilia.modules.sql import BASE, SESSION
+from fortizers.modules.sql import BASE, SESSION
  
 class LastFMUsers(BASE):
     __tablename__ = "last_fm"

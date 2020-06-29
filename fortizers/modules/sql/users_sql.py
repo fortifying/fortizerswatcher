@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy import Column, Integer, UnicodeText, String, ForeignKey, UniqueConstraint, func
 
-from emilia import dispatcher
-from emilia.modules.sql import BASE, SESSION
+from fortizers import dispatcher
+from fortizers.modules.sql import BASE, SESSION
 
 
 class Users(BASE):

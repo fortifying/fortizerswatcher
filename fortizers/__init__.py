@@ -75,7 +75,7 @@ if ENV:
 	DEL_CMDS = bool(os.environ.get('DEL_CMDS', False))
 	STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', False))
 	WORKERS = int(os.environ.get('WORKERS', 8))
-	BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADBAAD4kYAAuOnXQW5LUN400QOBQI')
+	BAN_STICKER = os.environ.get('BAN_STICKER', 'CAACAgIAAxkBAAL8Z176HbDPJXrvmr_JrrNLZhTnvdhCAAI0EAACjC39B_YlpFuVGKxHGgQ')
 	# ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
 	CUSTOM_CMD = os.environ.get('CUSTOM_CMD', False)
 	LASTFM_API_KEY = os.environ.get('LASTFM_API_KEY', "")

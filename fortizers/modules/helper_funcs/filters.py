@@ -1,7 +1,7 @@
 from telegram import Message
 from telegram.ext import BaseFilter
 
-from emilia import SUPPORT_USERS, SUDO_USERS
+from fortizers import SUPPORT_USERS, SUDO_USERS
 
 
 class CustomFilters(object):
