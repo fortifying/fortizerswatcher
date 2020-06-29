@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from emilia.modules.sql import SESSION, BASE
+from fortizers.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):

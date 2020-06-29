@@ -3,8 +3,8 @@ import threading
 from sqlalchemy import Column, String, UnicodeText, func, distinct, Integer, Boolean
 from telegram.error import BadRequest, TelegramError, Unauthorized
 
-from emilia import dispatcher
-from emilia.modules.sql import SESSION, BASE
+from fortizers import dispatcher
+from fortizers.modules.sql import SESSION, BASE
 
 
 class Federations(BASE):

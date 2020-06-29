@@ -3,8 +3,8 @@ import threading
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, func, distinct
 
-from emilia.modules.helper_funcs.msg_types import Types
-from emilia.modules.sql import SESSION, BASE
+from fortizers.modules.helper_funcs.msg_types import Types
+from fortizers.modules.sql import SESSION, BASE
 
 
 class Notes(BASE):

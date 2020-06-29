@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
 
-from emilia.modules.helper_funcs.msg_types import Types
-from emilia.modules.sql import BASE, SESSION
+from fortizers.modules.helper_funcs.msg_types import Types
+from fortizers.modules.sql import BASE, SESSION
 
 
 class CustomFilters(BASE):

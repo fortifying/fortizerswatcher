@@ -4,8 +4,8 @@ from typing import Union
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, BigInteger
 
-from emilia.modules.helper_funcs.msg_types import Types
-from emilia.modules.sql import SESSION, BASE
+from fortizers.modules.helper_funcs.msg_types import Types
+from fortizers.modules.sql import SESSION, BASE
 
 DEFAULT_WELCOME = "Hey {first}, Apa kabar?"
 DEFAULT_GOODBYE = "Sampai jumpa lagi!"

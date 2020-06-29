@@ -7,14 +7,14 @@ from telegram.ext import CommandHandler, CallbackQueryHandler, Filters, run_asyn
 from telegram.error import BadRequest
 from telegram.utils.helpers import mention_markdown
 
-from emilia import dispatcher, updater, spamcheck, IS_DEBUG
-import emilia.modules.sql.welcome_sql as sql
-from emilia.modules.languages import tl
-from emilia.modules.connection import connected
+from fortizers import dispatcher, updater, spamcheck, IS_DEBUG
+import fortizers.modules.sql.welcome_sql as sql
+from fortizers.modules.languages import tl
+from fortizers.modules.connection import connected
 
-from emilia.modules.helper_funcs.alternate import send_message, send_message_raw
-from emilia.modules.helper_funcs.chat_status import user_admin
-from emilia.modules.helper_funcs.string_handling import make_time, extract_time_int
+from fortizers.modules.helper_funcs.alternate import send_message, send_message_raw
+from fortizers.modules.helper_funcs.chat_status import user_admin
+from fortizers.modules.helper_funcs.string_handling import make_time, extract_time_int
 
 def welcome_timeout(context):
 	for cht in sql.get_all_chat_timeout():

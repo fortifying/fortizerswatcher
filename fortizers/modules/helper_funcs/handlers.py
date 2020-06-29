@@ -2,7 +2,7 @@ import telegram.ext as tg
 from telegram import Update
 
 try:
-    from emilia import CUSTOM_CMD
+    from fortizers import CUSTOM_CMD
 except:
     CUSTOM_CMD = False
 
