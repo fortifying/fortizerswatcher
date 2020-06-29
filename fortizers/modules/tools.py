@@ -7,9 +7,9 @@ import speedtest
 from telegram import Update, Bot, ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 
-from fortizerslia import dispatcher, OWNER_ID
-from fortizerslia.modules.helper_funcs.extraction import extract_text
-from fortizerslia.modules.helper_funcs.filters import CustomFilters
+from fortizers import dispatcher, OWNER_ID
+from fortizers.modules.helper_funcs.extraction import extract_text
+from fortizers.modules.helper_funcs.filters import CustomFilters
 
 
 # Kanged from PaperPlane Extended userbot
