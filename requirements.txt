@@ -23,6 +23,7 @@ markdown2
 spongemock
 zalgo-text
 aiohttp
+tswift
 tldextract
 pytz
 kbbi
