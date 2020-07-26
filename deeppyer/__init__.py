@@ -1,7 +1,10 @@
 from PIL import Image, ImageOps, ImageEnhance
 from io import BytesIO
 from enum import Enum
-import aiohttp, asyncio, math, argparse
+import aiohttp
+import asyncio
+import math
+import argparse
 
 
 class DeepfryTypes(Enum):
@@ -16,7 +19,7 @@ class Colours:
     RED = (254, 0, 2)
     YELLOW = (255, 255, 15)
     BLUE = (36, 113, 229)
-    WHITE = (255, ) * 3
+    WHITE = (255,) * 3
 
 
 # TODO: Replace face recognition API with something like OpenCV.
@@ -30,7 +33,7 @@ async def deepfry(img: Image,
                   type=DeepfryTypes.RED) -> Image:
     """
     Deepfry an image.
-    
+
     img: PIL.Image - Image to deepfry.
     [token]: str - Token to use for Microsoft facial recognition API. If this is not supplied, lens flares will not be added.
     [url_base]: str = 'westcentralus' - API base to use. Only needed if your key's region is not `westcentralus`.
@@ -38,6 +41,7 @@ async def deepfry(img: Image,
 
     Returns: PIL.Image - Deepfried image.
     """
+
     img = img.copy().convert('RGB')
 
     if type not in DeepfryTypes:
@@ -64,7 +68,11 @@ async def deepfry(img: Image,
         else:
             async with aiohttp.ClientSession() as s, s.post(
                     req_url, headers=headers, data=b.read()) as r:
-                face_data = await r.json()
+                try:
+                    face_data = await r.json()
+                except Exception:
+                    print("Something is wrong with Microsoft API!")
+                    return
 
         if 'error' in face_data:
             err = face_data['error']
@@ -105,11 +113,11 @@ async def deepfry(img: Image,
     # Crush image to hell and back
     img = img.convert('RGB')
     width, height = img.width, img.height
-    img = img.resize((int(width**.75), int(height**.75)),
+    img = img.resize((int(width ** .75), int(height ** .75)),
                      resample=Image.LANCZOS)
-    img = img.resize((int(width**.88), int(height**.88)),
+    img = img.resize((int(width ** .88), int(height ** .88)),
                      resample=Image.BILINEAR)
-    img = img.resize((int(width**.9), int(height**.9)), resample=Image.BICUBIC)
+    img = img.resize((int(width ** .9), int(height ** .9)), resample=Image.BICUBIC)
     img = img.resize((width, height), resample=Image.BICUBIC)
     img = ImageOps.posterize(img, 4)
 
@@ -130,9 +138,9 @@ async def deepfry(img: Image,
     if token and face_data:
         # Copy and resize flares
         flare = Image.open('./deeppyer/flare.png')
-        flare_left = flare.copy().resize((flare_left_size, ) * 2,
+        flare_left = flare.copy().resize((flare_left_size,) * 2,
                                          resample=Image.BILINEAR)
-        flare_right = flare.copy().resize((flare_right_size, ) * 2,
+        flare_right = flare.copy().resize((flare_right_size,) * 2,
                                           resample=Image.BILINEAR)
 
         del flare
