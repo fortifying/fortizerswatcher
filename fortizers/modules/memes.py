@@ -25,7 +25,7 @@ from zalgo_text import zalgo
 
 from deeppyer import deepfry
 from fortizers.modules.disable import DisableAbleCommandHandler
-from fortizers import dispatcher, spamcheck
+from fortizers import dispatcher, spamcheck, DEEPFRY_TOKEN
 from fortizers.modules.languages import tl
 
 MAXNUMURL = 'https://raw.githubusercontent.com/atanet90/expression-pack/master/meta'
@@ -80,7 +80,7 @@ def owo(update, context):
 @run_async
 def deepfryer(update, context):
     message = update.effective_message
-    chat = update.effective_chat  # type: Optional[Chat]
+    chat = update.effective_chat
     if message.reply_to_message:
         data = message.reply_to_message.photo
         data2 = message.reply_to_message.sticker
@@ -106,12 +106,11 @@ def deepfryer(update, context):
     bot = context.bot
     loop = asyncio.new_event_loop()
     loop.run_until_complete(
-        process_deepfry(image, message.reply_to_message, context.bot))
+        process_deepfry(image, message.reply_to_message, bot, context))
     loop.close()
 
 
 async def process_deepfry(image: Image, reply: Message, bot: Bot, context):
-    bot = context.bot
     image = await deepfry(img=image,
                           token=DEEPFRY_TOKEN,
                           url_base='westeurope')
