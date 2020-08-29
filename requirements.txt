@@ -9,7 +9,6 @@ feedparser
 pyowm
 googletrans
 wikipedia
-feedparser
 Pillow
 alphabet_detector
 urbandict
