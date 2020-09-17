@@ -1,3 +1,4 @@
+import datetime
 import html
 import json
 import random
@@ -6,7 +7,8 @@ import urllib.parse
 import requests
  
 from typing import Optional
- 
+from covid import Covid
+
 from telegram.error import BadRequest
 from telegram import Message, Chat, MessageEntity, InlineKeyboardMarkup
 from telegram import ParseMode
@@ -462,7 +464,72 @@ def paste(update, context):
         parse_mode=ParseMode.MARKDOWN,
         disable_web_page_preview=True)
  
- 
+@run_async
+@typing_action
+def covid(update, context):
+    message = update.effective_message
+    country = str(message.text[len(f'/covid '):])
+    data = Covid(source="worldometers")
+
+    if country == '':
+        country = "world"
+        link = "https://www.worldometers.info/coronavirus"
+    elif country.lower() in ["south korea", "korea"]:
+        country = "s. korea"
+        link = "https://www.worldometers.info/coronavirus/country/south-korea"
+    else:
+        link = f"https://www.worldometers.info/coronavirus/country/{country}"
+    try:
+        c_case = data.get_status_by_country_name(country)
+    except Exception:
+        message.reply_text("An error have occured! Are you sure the country name is correct?")
+        return
+    total_tests = c_case['total_tests']
+    if total_tests == 0:
+        total_tests = "N/A"
+    else:
+        total_tests = format_integer(c_case['total_tests'])
+
+    date = datetime.datetime.now().strftime("%d %b %Y")
+
+    output = (
+        f"<b>Corona Virus Statistics in {c_case['country']}</b>\n"
+        f"<b>on {date}</b>\n\n"
+        f"<b>Confirmed Cases :</b> <code>{format_integer(c_case['confirmed'])}</code>\n"
+        f"<b>Active Cases :</b> <code>{format_integer(c_case['active'])}</code>\n"
+        f"<b>Deaths :</b> <code>{format_integer(c_case['deaths'])}</code>\n"
+        f"<b>Recovered :</b> <code>{format_integer(c_case['recovered'])}</code>\n\n"
+        f"<b>New Cases :</b> <code>{format_integer(c_case['new_cases'])}</code>\n"
+        f"<b>New Deaths :</b> <code>{format_integer(c_case['new_deaths'])}</code>\n"
+        f"<b>Critical Cases :</b> <code>{format_integer(c_case['critical'])}</code>\n"
+        f"<b>Total Tests :</b> <code>{total_tests}</code>\n\n"
+        f"Data provided by <a href='{link}'>Worldometer</a>")
+
+    message.reply_text(
+        output, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+        )
+
+
+def format_integer(number, thousand_separator='.'):
+    def reverse(string):
+        string = "".join(reversed(string))
+        return string
+
+    s = reverse(str(number))
+    count = 0
+    result = ''
+    for char in s:
+        count = count + 1
+        if count % 3 == 0:
+            if len(s) == count:
+                result = char + result
+            else:
+                result = thousand_separator + char + result
+        else:
+            result = char + result
+    return result
+
+
 @run_async
 @spamcheck
 def get_paste_content(update, context):
@@ -868,6 +935,7 @@ __mod_name__ = "Misc"
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
 IP_HANDLER = CommandHandler("ip", get_bot_ip, filters=Filters.chat(OWNER_ID))
  
+COVID_HANDLER = CommandHandler("covid", covid)
 PASTE_HANDLER = CommandHandler("paste", paste, pass_args=True)
 GET_PASTE_HANDLER = CommandHandler(
     "getpaste", get_paste_content, pass_args=True)
@@ -916,4 +984,4 @@ dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(SHRUG_HANDLER)
 dispatcher.add_handler(HUG_HANDLER)
- 
+dispatcher.add_handler(COVID_HANDLER)
