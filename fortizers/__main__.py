@@ -18,6 +18,7 @@ from telegram.utils.helpers import escape_markdown, mention_html
 from fortizers import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, spamcheck
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
+from fortizers.modules.helper_funcs.alternate import typing_action
 from fortizers.modules import ALL_MODULES
 from fortizers.modules.languages import tl
 from fortizers.modules.helper_funcs.chat_status import is_user_admin
@@ -280,6 +281,7 @@ def help_button(update, context):
 
 
 @run_async
+@typing_action
 @spamcheck
 def get_help(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -409,6 +411,7 @@ def settings_button(update, context):
 
 
 @run_async
+@typing_action
 @spamcheck
 def get_settings(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
