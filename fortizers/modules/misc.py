@@ -25,7 +25,7 @@ from fortizers.modules.helper_funcs.misc import build_keyboard_alternate
  
 from fortizers.modules.languages import tl
 import fortizers.modules.sql.feds_sql as feds_sql
-from fortizers.modules.helper_funcs.alternate import send_message
+from fortizers.modules.helper_funcs.alternate import send_message, typing_action
  
 # Change language locale to Indonesia
 # Install language:
