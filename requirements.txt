@@ -26,6 +26,7 @@ aiohttp
 tswift
 tldextract
 pytz
+covid
 kbbi
 speedtest-cli
 python-rapidjson>=0.9.1
