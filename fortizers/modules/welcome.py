@@ -141,10 +141,10 @@ def new_member(update, context):
             if OWNER_SPECIAL and new_mem.id == OWNER_ID:
                 if cleanserv:
                     context.bot.send_message(chat.id, tl(update.effective_message,
-                                                         "My Master has come home! Let's start this party! 😆"))
+                                                         "Heyyyyoo!! my master is come! lets start the party🔥🔥"))
                 else:
                     send_message(update.effective_message,
-                                 tl(update.effective_message, "My Master has come home! Let's start this party! 😆"))
+                                 tl(update.effective_message, "Heyyyyoo!! my master is come! lets start the party🔥🔥"))
                 continue
  
             # Don't welcome yourself
