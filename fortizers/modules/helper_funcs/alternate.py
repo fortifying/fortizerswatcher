@@ -63,7 +63,8 @@ def leave_chat(message):
         if str(err) == "Chat not found":
             pass
 
- def typing_action(func):
+
+def typing_action(func):
     """Sends typing action while processing func command."""
  
     @wraps(func)
