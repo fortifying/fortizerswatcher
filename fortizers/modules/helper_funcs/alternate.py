@@ -1,5 +1,7 @@
 from telegram import error
  
+from functools import wraps
+from telegram import error, ChatAction
 from fortizers import dispatcher, LOGGER
  
 DUMP_CHAT = -1001380042895
