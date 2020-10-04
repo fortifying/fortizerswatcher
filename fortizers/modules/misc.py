@@ -802,23 +802,19 @@ def info(update, context):
                "\nUser link: {}").format(mention_html(user.id, "link"))
  
     if user.id == OWNER_ID:
-        text += tl(update.effective_message,
-                   "\n\nThis person is my owner - I would never do anything against them!")
-
-        elif user.id in SUDO_USERS:
-            text += tl(update.effective_message,
-                       "\n\nThis person is one of my sudo users! "
-                       "Nearly as powerful as my owner - so watch it.")
-
-        elif user.id in SUPPORT_USERS:
-            text += tl(update.effective_message,
-                           "\n\nThis person is one of my support users! "
-                           "Not quite a sudo user, but can still gban you off the map.")
+        text += "\n\nThis person is my owner - I would never do anything against him!"
  
-         elif user.id in WHITELIST_USERS:
-             text += tl(update.effective_message,
-                           "\n\nThis person has been whitelisted!"
-                           "That means I'm not allowed to ban/kick them.")
+    elif user.id in SUDO_USERS:
+           text += "\nThis person is one of my sudo users! " \
+                    "Nearly as powerful as my owner - so watch it."
+ 
+    elif user.id in SUPPORT_USERS:
+          text += "\nThis person is one of my support users! " \
+                        "Not quite a sudo user, but can still gban you off the map."
+ 
+    elif user.id in WHITELIST_USERS:
+           text += "\nThis person has been whitelisted! " \
+                        "That means I'm not allowed to ban/kick them."
  
     fedowner = feds_sql.get_user_owner_fed_name(user.id)
     if fedowner:
@@ -834,15 +830,15 @@ def info(update, context):
     for mod in USER_INFO:
         if mod.__mod_name__ == "Users":
             continue
-
-         try:
+ 
+        try:
             mod_info = mod.__user_info__(user.id)
         except TypeError:
             mod_info = mod.__user_info__(user.id, chat.id)
         if mod_info:
             text += "\n" + mod_info
-
-     update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+ 
+    update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
  
  
 @run_async
