@@ -804,19 +804,19 @@ def info(update, context):
     if user.id == OWNER_ID:
         text += tl(update.effective_message,
                    "\n\nThis person is my owner - I would never do anything against them!")
-    else:
-        if user.id in SUDO_USERS:
+
+        elif user.id in SUDO_USERS:
             text += tl(update.effective_message,
                        "\n\nThis person is one of my sudo users! "
                        "Nearly as powerful as my owner - so watch it.")
-        else:
-            if user.id in SUPPORT_USERS:
-                text += tl(update.effective_message,
+
+        elif user.id in SUPPORT_USERS:
+            text += tl(update.effective_message,
                            "\n\nThis person is one of my support users! "
                            "Not quite a sudo user, but can still gban you off the map.")
  
-            if user.id in WHITELIST_USERS:
-                text += tl(update.effective_message,
+         elif user.id in WHITELIST_USERS:
+             text += tl(update.effective_message,
                            "\n\nThis person has been whitelisted!"
                            "That means I'm not allowed to ban/kick them.")
  
@@ -832,11 +832,17 @@ def info(update, context):
     #     text += ", ".join(fedadmin)
  
     for mod in USER_INFO:
-        mod_info = mod.__user_info__(user.id, chat.id).strip()
+        if mod.__mod_name__ == "Users":
+            continue
+
+         try:
+            mod_info = mod.__user_info__(user.id)
+        except TypeError:
+            mod_info = mod.__user_info__(user.id, chat.id)
         if mod_info:
-            text += "\n\n" + mod_info
- 
-    send_message(update.effective_message, text, parse_mode=ParseMode.HTML)
+            text += "\n" + mod_info
+
+     update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
  
  
 @run_async
