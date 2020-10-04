@@ -1025,6 +1025,7 @@ Keep in mind that your message <b>MUST</b> contain some text other than just a b
 	"/save test Ini adalah tes markdown. _miring_, *tebal*, `kode`, [URL](contoh.com) [tombol](buttonurl:github.com) [tombol2](buttonurl:google.com:same)": "/save test This is a markdown test. _italics_, *bold*, `code`, [URL](example.com) [button](buttonurl:github.com) [button2](buttonurl:google.com:same)",
 	"Statistik saat ini:\n": "Current stats:\n",
 	"misc_help": """
+ - /covid <Country>: Show COVID-19 Statistic according to Worldometer database. - Don't type the 'Country' to show World statistic.
  - /id: get the current group id. If used by replying to a message, gets that user's id.
  - /runs: reply a random string from an array of replies.
  - /slap: slap a user, or get slapped if not a reply.

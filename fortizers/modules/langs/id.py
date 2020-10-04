@@ -351,6 +351,7 @@ Ini akan membuat dua tombol pada satu baris, bukan satu tombol per baris.
 Perlu diingat bahwa pesan Anda <b>HARUS</b> berisi beberapa teks selain hanya sebuah tombol!
 """,
 	"misc_help": """
+ - /covid <Negara>: Untuk menampilkan statistik COVID-19. - Kosongkan bagian Negara untuk menampilkan Data statistik seluruh dunia.
  - /id: dapatkan ID grup saat ini. Jika digunakan dengan membalas pesan, dapatkan id pengguna itu.
  - /runs: balas string acak dari larik balasan.
  - /lari: sama seperti runs.
