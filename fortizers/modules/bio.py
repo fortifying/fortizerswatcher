@@ -6,7 +6,7 @@ from telegram import ParseMode, MAX_MESSAGE_LENGTH
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import escape_markdown
  
-import fortizers.modules.sql.userinfo_sql as sql
+import fortizers.modules.sql.bio_sql as sql
 from fortizers import dispatcher, SUDO_USERS
 from fortizers.modules.disable import DisableAbleCommandHandler
 from fortizers.modules.helper_funcs.extraction import extract_user
