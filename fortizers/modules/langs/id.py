@@ -56,6 +56,7 @@ Perintah yang tersedia adalah:
  - /permapin <teks>: Sematkan pesan khusus melalui bot. Pesan ini dapat berisi markdown, dan dapat digunakan dalam balasan ke media untuk menyertakan tombol dan teks tambahan.
  - /permanentpin: Setel pin permanen untuk obrolan supergroup, ketika admin atau saluran telegram mengubah pesan yang disematkan, bot akan segera mengubah pesan yang disematkan.
  - /invitelink: dapatkan tautan undangan
+ - /settitle: Menambahkan title atau rank pada admin yang dituju, hanya bisa dilakukan jika user tersebut di promote oleh bot ini.
  - /promote: mempromosikan pengguna yang dibalas
  - /demote: demosikan pengguna yang dibalas
 """,

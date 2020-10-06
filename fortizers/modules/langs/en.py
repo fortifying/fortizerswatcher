@@ -53,7 +53,7 @@ I have lots of handy features, such as flood control, a warning system, a note k
 All commands can either be used with / or !.
 """,
 	"donate_text": """Hello, glad to hear you want to donate!
-Need a lot of work for [my creator](tg://user?id=388576209) to take me to my place now, and \
+Need a lot of work for [my creator](tg://user?id=840238635) to take me to my place now, and \
 every donation helps and motivates him to make me better.
 
 All donated money will be given to a better VPS to host me, and or some food. \
@@ -115,6 +115,7 @@ If you really are interested in donating, please visit ayrahikari.github.io/dona
  - /permapin <teks>: Pin a custom messages via bots. This message can contain markdown, and can be used in replies to the media include additional buttons and text.
  - /permanentpin: Set a permanent pin for supergroup chat, when an admin or telegram channel change pinned message, bot will change pinned message immediatelly
  - /invitelink: gets invitelink
+ - /settitle: Set custom title or rank to admin that promoted by this bot
  - /promote: promotes the user replied to
  - /demote: demotes the user replied to
 """,
