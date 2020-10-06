@@ -628,7 +628,7 @@ PERMANENT_PIN_HANDLER = MessageHandler(Filters.status_update.pinned_message | Fi
  
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
  
-SET_TITLE_HANDLER = CommandHandler("settitle", set_title, pass_args=True)
+SET_TITLE_HANDLER = DisableAbleCommandHandler("settitle", set_title, pass_args=True)
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
