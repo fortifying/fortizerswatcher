@@ -10,7 +10,7 @@ from telegram.utils.helpers import mention_html, mention_markdown
  
 from fortizers import dispatcher, spamcheck, TOKEN
 from fortizers.modules.disable import DisableAbleCommandHandler
-from fortizers.modules.helper_funcs.chat_status import bot_admin, can_promote, user_admin, can_pin
+from fortizers.modules.helper_funcs.chat_status import bot_admin, can_promote, user_admin, can_pin, user_can_promote
 from fortizers.modules.helper_funcs.extraction import extract_user, extract_user_and_text
 from fortizers.modules.helper_funcs.msg_types import get_message_type
 from fortizers.modules.helper_funcs.misc import build_keyboard_alternate
@@ -59,6 +59,9 @@ def promote(update, context):
         chat_id = update.effective_chat.id
  
     user_id = extract_user(message, args)
+    if user_can_promote(chat, user, bot.id) == False:
+    	message.reply_text("You don't have enough rights to promote someone!")
+    	return ""
     if not user_id:
         send_message(update.effective_message,
                      tl(update.effective_message, "You don't seem to be referring to a user."))
@@ -182,6 +185,9 @@ def demote(update, context):
         chat = update.effective_chat
  
     user_id = extract_user(message, args)
+    if user_can_promote(chat, user, bot.id) == False:
+    	message.reply_text("You don't have enough rights to promote someone!")
+    	return ""
     if not user_id:
         send_message(update.effective_message,
                      tl(update.effective_message, "You don't seem to be referring to a user."))

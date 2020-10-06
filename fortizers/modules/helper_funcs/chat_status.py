@@ -15,6 +15,9 @@ from fortizers.modules import languages
 def can_delete(chat: Chat, bot_id: int) -> bool:
 	return chat.get_member(bot_id).can_delete_messages
 
+def user_can_promote(chat: Chat, user: User, bot_id: int) -> bool:
+	return chat.get_member(bot_id).can_promote_members and chat.get_member(user.id).can_promote_members
+
 def user_can_delete(chat: Chat, user: User, bot_id: int) -> bool:
 	return chat.get_member(bot_id).can_delete_messages and chat.get_member(user.id).can_delete_messages
 
