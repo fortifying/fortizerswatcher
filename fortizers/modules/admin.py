@@ -117,49 +117,59 @@ def promote(update, context):
 @bot_admin
 @can_promote
 @user_admin
-def set_title(bot: Bot, update: Update, args: List[str]):
-
+def set_title(update, context):
+    args = context.args
     chat = update.effective_chat
     message = update.effective_message
-
+ 
     user_id, title = extract_user_and_text(message, args)
     try:
         user_member = chat.get_member(user_id)
-    except:
+    except Exception:
         return
-
+ 
     if not user_id:
         message.reply_text("You don't seem to be referring to a user.")
         return
-
-    if user_member.status == 'creator':
-        message.reply_text("This person CREATED the chat, how can i set custom title for him?")
+ 
+    if user_member.status == "creator":
+        message.reply_text(
+            "This person CREATED the chat, how can i set custom title for him?"
+        )
         return
-
-    if not user_member.status == 'administrator':
-        message.reply_text("Can't set title for non-admins!\nPromote them first to set custom title!")
+ 
+    if not user_member.status == "administrator":
+        message.reply_text(
+            "Can't set title for non-admins!\nPromote them first to set custom title!"
+        )
         return
-
-    if user_id == bot.id:
-        message.reply_text("I can't set my own title myself! Get the one who made me admin to do it for me.")
+ 
+    if user_id == context.bot.id:
+        message.reply_text(
+            "I can't set my own title myself! Get the one who made me admin to do it for me."
+        )
         return
-
+ 
     if not title:
         message.reply_text("Setting blank title doesn't do anything!")
         return
-
+ 
     if len(title) > 16:
-        message.reply_text("The title length is longer than 16 characters.\nTruncating it to 16 characters.")
-
-    result = requests.post(f"https://api.telegram.org/bot{TOKEN}/setChatAdministratorCustomTitle?chat_id={chat.id}&user_id={user_id}&custom_title={title}")
-    status = result.json()["ok"]
-
-    if status == True:
-        bot.sendMessage(chat.id, "Sucessfully set title for <code>{}</code> to <code>{}</code>!".format(user_member.user.first_name or user_id, title[:16]), parse_mode=ParseMode.HTML)
-    else:
-        description = result.json()["description"]
-        if description == "Bad Request: not enough rights to change custom title of the user":
-            message.reply_text("I can't set custom title for admins that I didn't promote!")
+        message.reply_text(
+            "The title length is longer than 16 characters.\nTruncating it to 16 characters."
+        )
+ 
+    try:
+        context.bot.set_chat_administrator_custom_title(chat.id, user_id, title)
+        message.reply_text(
+            "Sucessfully set title for <b>{}</b> to <code>{}</code>!".format(
+                user_member.user.first_name or user_id, title[:16]
+            ),
+            parse_mode=ParseMode.HTML,
+        )
+ 
+    except BadRequest:
+        message.reply_text("I can't set custom title for admins that I didn't promote!")
 
 
 @run_async
