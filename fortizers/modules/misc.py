@@ -786,10 +786,12 @@ def info(update, context):
     else:
         return
  
-    text = tl(update.effective_message, "<b>User info:</b>") \
-           + "\nID: <code>{}</code>".format(user.id) + \
-           tl(update.effective_message, "\nFirst Name: {}").format(html.escape(user.first_name))
+    profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
  
+    text = "<b>USER INFO</b>:" \
+           "\n\nID: <code>{}</code>" \
+           "\nFirst Name: {}".format(user.id, html.escape(user.first_name))
+  
     if user.last_name:
         text += tl(update.effective_message,
                    "\nLast Name: {}").format(html.escape(user.last_name))
@@ -836,10 +838,9 @@ def info(update, context):
         except TypeError:
             mod_info = mod.__user_info__(user.id, chat.id)
         if mod_info:
-            text += "\n" + mod_info
+            text += "\n\n" + mod_info
  
-    update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
- 
+    context.bot.send_photo(chat.id, photo=profile, caption=(text), parse_mode=ParseMode.HTML, disable_web_page_preview=True)
  
 @run_async
 def echo(update, context):
