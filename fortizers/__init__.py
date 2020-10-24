@@ -87,6 +87,7 @@ if ENV:
 	API_WEATHER = os.environ.get('API_OPENWEATHER', None)
 	TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
 	DEEPFRY_TOKEN = os.environ.get('DEEPFRY_TOKEN', "")
+	SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
  
 else:
 	from fortizers.config import Development as Config
@@ -139,6 +140,7 @@ else:
 	NO_LOAD = Config.NO_LOAD
 	LASTFM_API_KEY = Config.LASTFM_API_KEY
 	DEL_CMDS = Config.DEL_CMDS
+	SPAMWATCH = Config.SPAMWATCH_API
 	STRICT_GBAN = Config.STRICT_GBAN
 	WORKERS = Config.WORKERS
 	BAN_STICKER = Config.BAN_STICKER
@@ -156,8 +158,11 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
  
 # SpamWatch
-sw_token = Config.SPAMWATCH_API
-spamwtc = spamwatch.Client(sw_token)
+if SPAMWATCH == None:
+    spamwtc = None
+    LOGGER.warning("Spamwatch is empty!!")
+else:
+    spamwtc = spamwatch.Client(SPAMWATCH)
  
 SUDO_USERS = list(SUDO_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
