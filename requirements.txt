@@ -29,4 +29,5 @@ pytz
 covid
 kbbi
 speedtest-cli
+spamwatch
 python-rapidjson>=0.9.1
