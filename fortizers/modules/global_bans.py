@@ -373,7 +373,7 @@ def gbanstat(update, context):
         if args[0].lower() in ["on", "yes"]:
             sql.enable_gbans(update.effective_chat.id)
             update.effective_message.reply_text(
-                "I've enabled Spam Sheild in this group. This will help protect you "
+                "I've enabled Spam Shield in this group. This will help protect you "
                 "from spammers, unsavoury characters, and the biggest trolls."
             )
         elif args[0].lower() in ["off", "no"]:
