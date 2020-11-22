@@ -138,13 +138,11 @@ def new_member(update, context):
         new_members = update.effective_message.new_chat_members
         for new_mem in new_members:
             # Give the owner a special welcome
-            if OWNER_SPECIAL and new_mem.id == OWNER_ID:
-                if cleanserv:
-                    context.bot.send_message(chat.id, tl(update.effective_message,
-                                                         "My Master has come home! Let's start this party! 😆"))
-                else:
-                    send_message(update.effective_message,
-                                 tl(update.effective_message, "My Master has come home! Let's start this party! 😆"))
+            if new_mem.id == OWNER_ID:
+                update.effective_message.reply_text(
+                    "Eyyy My Master has come! let the party begins! 😆",
+                    reply_to_message_id=reply,
+                )
                 continue
  
             # Don't welcome yourself
