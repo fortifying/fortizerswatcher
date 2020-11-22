@@ -126,17 +126,22 @@ def new_member(update, context):
     should_welc, cust_welcome, cust_content, welc_type = sql.get_welc_pref(chat.id)
  
     cleanserv = sql.clean_service(chat.id)
-    if cleanserv:
-        new_members = update.effective_message.new_chat_members
-        for new_mem in new_members:
-            try:
-                dispatcher.bot.delete_message(chat.id, update.message.message_id)
-            except BadRequest:
-                pass
     if should_welc:
         sent = None
         new_members = update.effective_message.new_chat_members
+ 
         for new_mem in new_members:
+            reply = update.message.message_id
+            cleanserv = sql.clean_service(chat.id)
+            # Clean service welcome
+            if cleanserv:
+                reply = False
+                try:
+                    dispatcher.bot.delete_message(
+                        chat.id, update.message.message_id)
+                except BadRequest:
+                    pass
+
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
