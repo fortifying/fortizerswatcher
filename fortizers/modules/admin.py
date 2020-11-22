@@ -195,7 +195,7 @@ def demote(update, context):
         chat = update.effective_chat
  
     user_id = extract_user(message, args)
-    if user_can_promote(chat, user, bot.id) == False:
+    if user_can_promote(chat, user, context.bot.id) == False:
     	message.reply_text("You don't have enough rights to promote someone!")
     	return ""
     if not user_id:
