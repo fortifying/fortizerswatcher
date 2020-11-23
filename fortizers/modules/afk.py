@@ -1,7 +1,8 @@
 from typing import Optional
+import random
  
 from telegram import Message, User
-from telegram import MessageEntity
+from telegram import MessageEntity, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler, run_async
  
@@ -13,6 +14,7 @@ from fortizers.modules.users import get_user_id
  
 from fortizers.modules.languages import tl
 from fortizers.modules.helper_funcs.alternate import send_message
+import fortizers.modules.helper_funcs.fun as fun
  
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
@@ -28,7 +30,8 @@ def afk(update, context):
         reason = ""
  
     sql.set_afk(update.effective_user.id, reason)
-    send_message(update.effective_message, "{} is now AFK!".format(update.effective_user.first_name))
+    afkstr = random.choice(fun.AFK)
+    update.effective_message.reply_text(afkstr.format(update.effective_user.first_name))
  
  
 @run_async
@@ -40,7 +43,8 @@ def no_longer_afk(update, context):
  
     res = sql.rm_afk(user.id)
     if res:
-        send_message(update.effective_message, "{} is no longer AFK!".format(update.effective_user.first_name))
+       noafkstr = random.choice(fun.NOAFK)
+       update.effective_message.reply_text(noafkstr.format(user.first_name))
  
  
 @run_async
@@ -73,11 +77,11 @@ def reply_afk(update, context):
                 valid, reason = sql.check_afk_status(user_id)
                 if valid:
                     if not reason:
-                        res = "{} is AFK!".format(fst_name)
+                        rplafkstr = random.choice(fun.AFKREPLY)
+                        res = rplafkstr.format(fst_name)
                     else:
-                        res = "{} is AFK! says its because of: {}".format(fst_name,
-                                                                                                        reason)
-                    send_message(update.effective_message, res)
+                        res = f"<b>{fst_name}</b> is AFK! says it's because of \n{reason}"
+                    send_message(update.effective_message, res, parse_mode=ParseMode.HTML)
  
  
 __help__ = "afk_help"
