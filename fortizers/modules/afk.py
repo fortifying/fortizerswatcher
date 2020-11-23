@@ -28,8 +28,7 @@ def afk(update, context):
         reason = ""
  
     sql.set_afk(update.effective_user.id, reason)
-    send_message(update.effective_message,
-                 tl(update.effective_message, "{} is now AFK!").format(update.effective_user.first_name))
+    send_message(update.effective_message, "{} is now AFK!".format(update.effective_user.first_name))
  
  
 @run_async
@@ -41,8 +40,7 @@ def no_longer_afk(update, context):
  
     res = sql.rm_afk(user.id)
     if res:
-        send_message(update.effective_message,
-                     tl(update.effective_message, "{} is no longer AFK!").format(update.effective_user.first_name))
+        send_message(update.effective_message, "{} is no longer AFK!".format(update.effective_user.first_name))
  
  
 @run_async
@@ -75,9 +73,9 @@ def reply_afk(update, context):
                 valid, reason = sql.check_afk_status(user_id)
                 if valid:
                     if not reason:
-                        res = tl(update.effective_message, "{} is AFK!").format(fst_name)
+                        res = "{} is AFK!".format(fst_name)
                     else:
-                        res = tl(update.effective_message, "{} is AFK! says its because of: {}").format(fst_name,
+                        res = "{} is AFK! says its because of: {}".format(fst_name,
                                                                                                         reason)
                     send_message(update.effective_message, res)
  
@@ -87,7 +85,9 @@ __help__ = "afk_help"
 __mod_name__ = "AFK"
  
 AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
-AFK_REGEX_HANDLER = DisableAbleMessageHandler(Filters.regex("(?i)brb"), afk, friendly="afk")
+AFK_REGEX_HANDLER = DisableAbleMessageHandler(
+    Filters.regex("(?i)brb"), afk, friendly="afk"
+)
 NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.group & ~Filters.update.edited_message, no_longer_afk)
 AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.group, reply_afk)
  
