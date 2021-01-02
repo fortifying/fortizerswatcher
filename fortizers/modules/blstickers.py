@@ -14,7 +14,6 @@ from fortizers import dispatcher, SUDO_USERS, LOGGER, spamcheck, OWNER_ID
 from fortizers.modules.disable import DisableAbleCommandHandler
 from fortizers.modules.helper_funcs.chat_status import can_delete, is_user_admin, user_not_admin, user_admin, \
 		bot_can_delete, is_bot_admin
-from fortizers.modules.helper_funcs.filters import CustomFilters
 from fortizers.modules.helper_funcs.misc import split_message
 from fortizers.modules.warns import warn
 from fortizers.modules.log_channel import loggable
