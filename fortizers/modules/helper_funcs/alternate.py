@@ -21,7 +21,7 @@ def send_message(message, text, target_id=None, *args, **kwargs):
                 try:
                     dispatcher.bot.leaveChat(message.chat.id)
                     dispatcher.bot.sendMessage(DUMP_CHAT,
-                                               "I am leave chat `{}`\nBecause of: `Muted`".format(message.chat.title))
+                                               "I am leave chat {}\nBecause of: Muted".format(message.chat.title))
  
                 except error.BadRequest as err:
                     if str(err) == "Chat not found":
