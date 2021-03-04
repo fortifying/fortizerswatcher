@@ -286,7 +286,7 @@ def new_member(update, context):
                     getsec, extra_verify, mutetime, timeout, timeout_mode, custom_text = sql.welcome_security(chat.id)
  
                     # If user ban protected don't apply security on him
-                    if is_user_ban_protected(chat, new_mem.id, chat.get_member(new_mem.id)):
+                    if is_user_ban_protected(chat, new_mem.id, chat.get_member(new_mem.id) or new_mem.is_bot):
                         pass
                     elif getsec:
                         is_clicked = sql.get_chat_userlist(chat.id)
