@@ -11,7 +11,7 @@ import urbandict
 
 import pyowm
 from pyowm import timeutils, exceptions
-from googletrans import Translator
+from google_trans_new import google_translator, LANGUAGES
 import wikipedia
 from kbbi import KBBI
 import base64
