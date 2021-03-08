@@ -7,7 +7,7 @@ RUN apt update
 #
 # Clone repo and prepare working directory
 #
-RUN git clone https://github.com/fortifying/fortizerswatcher.git /fortizers
+RUN git clone https://github.com/fortifying/fortizerswatcher.git -b is-wip /fortizers
 RUN mkdir /fortizers/bin
 WORKDIR /fortizers/
 RUN apt install python3-pip -y
