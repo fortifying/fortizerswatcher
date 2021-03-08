@@ -1,4 +1,4 @@
-FROM heinzdf/fortizerswxtcher:skyfall
+FROM heinzdf/fortizerswxtcher:legacy
 
 #
 # Clone repo and prepare working directory
