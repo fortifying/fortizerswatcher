@@ -16,7 +16,7 @@ from telegram.ext.dispatcher import run_async, DispatcherHandlerStop, Dispatcher
 from telegram.utils.helpers import escape_markdown, mention_html
 from sqlalchemy.exc import SQLAlchemyError, DBAPIError
 
-from fortizers import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, spamcheck
+from fortizers import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, spamcheck, MESSAGE_DUMP
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from fortizers.modules.helper_funcs.alternate import typing_action
