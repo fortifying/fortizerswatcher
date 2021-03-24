@@ -8,6 +8,7 @@ import requests
  
 from typing import Optional
 from covid import Covid
+from requests import get, post
 
 from telegram.error import BadRequest
 from telegram import Message, Chat, MessageEntity, InlineKeyboardMarkup
@@ -431,38 +432,32 @@ BASE_URL = 'https://del.dog'
 @run_async
 @spamcheck
 def paste(update, context):
-    args = context.args
-    message = update.effective_message
- 
-    if message.reply_to_message:
-        data = message.reply_to_message.text
-    elif len(args) >= 1:
-        data = message.text.split(None, 1)[1]
+    msg = update.effective_message
+
+    if msg.reply_to_message and msg.reply_to_message.document:
+        message = msg.reply_text("Pasting Text...")
+        file = context.bot.get_file(msg.reply_to_message.document)
+        file.download("file.txt")
+        text = codecs.open("file.txt", "r+", encoding="utf-8")
+        paste_text = text.read()
+        link = (
+            post("https://nekobin.com/api/documents", json={"content": paste_text})
+            .json()
+            .get("result")
+            .get("key")
+        )
+        message.edit_text(
+            "Pasted to Nekobin\n\n"
+            f"[Nekobin URL](https://nekobin.com/{link})\n"
+            f"[View RAW](https://nekobin.com/raw/{link})",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
+        os.remove("file.txt")
     else:
-        message.reply_text("What am I supposed to do with this?!")
+        msg.reply_text("Give me a text file to paste on nekobin")
         return
- 
-    r = requests.post(f'{BASE_URL}/documents', data=data.encode('utf-8'))
- 
-    if r.status_code == 404:
-        update.effective_message.reply_text('Failed to reach dogbin')
-        r.raise_for_status()
- 
-    res = r.json()
- 
-    if r.status_code != 200:
-        update.effective_message.reply_text(res['message'])
-        r.raise_for_status()
- 
-    key = res['key']
-    if res['isUrl']:
-        reply = f'Shortened URL: {BASE_URL}/{key}\nYou can view stats, etc. [here]({BASE_URL}/v/{key})'
-    else:
-        reply = f'{BASE_URL}/{key}'
-    update.effective_message.reply_text(
-        reply,
-        parse_mode=ParseMode.MARKDOWN,
-        disable_web_page_preview=True)
+
  
 @run_async
 @typing_action
@@ -842,6 +837,7 @@ def info(update, context):
  
     context.bot.send_photo(chat.id, photo=profile, caption=(text), parse_mode=ParseMode.HTML, disable_web_page_preview=True)
  
+
 @run_async
 def echo(update, context):
     message = update.effective_message
@@ -937,14 +933,8 @@ __mod_name__ = "Misc"
  
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
 IP_HANDLER = CommandHandler("ip", get_bot_ip, filters=Filters.chat(OWNER_ID))
- 
 COVID_HANDLER = CommandHandler("covid", covid)
 PASTE_HANDLER = CommandHandler("paste", paste, pass_args=True)
-GET_PASTE_HANDLER = CommandHandler(
-    "getpaste", get_paste_content, pass_args=True)
-PASTE_STATS_HANDLER = CommandHandler(
-    "pastestats", get_paste_stats, pass_args=True)
- 
 ECHO_HANDLER = CommandHandler("echo", echo, filters=Filters.user(OWNER_ID))
 MD_HELP_HANDLER = CommandHandler(
     "markdownhelp",
@@ -958,14 +948,12 @@ SUPPORT_LIST_HANDLER = CommandHandler(
     "supportlist",
     support_list,
     filters=CustomFilters.sudo_filter)
- 
 STATS_HANDLER = CommandHandler(
     "stats", stats, filters=CustomFilters.sudo_filter)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify, pass_args=True)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 SHRUG_HANDLER = DisableAbleCommandHandler(["shrug", "shg"], shrug)
 HUG_HANDLER = DisableAbleCommandHandler("hug", hug)
- 
 RUNS_HANDLER = DisableAbleCommandHandler(["runs", "lari"], runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, pass_args=True)
 INFO_HANDLER = DisableAbleCommandHandler("info", info, pass_args=True)
@@ -981,8 +969,6 @@ dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(SUDO_LIST_HANDLER)
 dispatcher.add_handler(SUPPORT_LIST_HANDLER)
 dispatcher.add_handler(PASTE_HANDLER)
-dispatcher.add_handler(GET_PASTE_HANDLER)
-dispatcher.add_handler(PASTE_STATS_HANDLER)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(SHRUG_HANDLER)

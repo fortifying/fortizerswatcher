@@ -254,8 +254,7 @@ def error_handler(update, context):
             f"{(tb_string)}"
         )
  
-    context.bot.send_message(chat_id=MESSAGE_DUMP, text="an error has been found here !!!", reply_markup=markup)
-        key = (
+       key = (
             requests.post(
                 "https://nekobin.com/api/documents", json={"content": message}
             )
