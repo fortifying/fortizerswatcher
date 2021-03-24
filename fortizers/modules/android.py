@@ -229,20 +229,40 @@ def checkfw(update, context):
 @spamcheck
 @run_async
 def magisk(update, context):
-    url = 'https://raw.githubusercontent.com/topjohnwu/magisk_files/'
+    url = "https://raw.githubusercontent.com/topjohnwu/magisk_files/"
     releases = ""
-    for type, branch in {"Stable": ["master/stable", "master"], "Beta": ["master/beta", "master"],
-                         "Canary (debug)": ["canary/debug", "canary"]}.items():
-        fetch = get(url + branch[0] + '.json')
-        data = json.loads(fetch.content)
-        releases += f'*{type}*: \n' \
-                    f'• [Changelog](https://github.com/topjohnwu/magisk_files/blob/{branch[1]}/notes.md)\n' \
-                    f'• Zip - [{data["magisk"]["version"]}-{data["magisk"]["versionCode"]}]({data["magisk"]["link"]}) \n' \
-                    f'• App - [{data["app"]["version"]}-{data["app"]["versionCode"]}]({data["app"]["link"]}) \n' \
-                    f'• Uninstaller - [{data["magisk"]["version"]}-{data["magisk"]["versionCode"]}]({data["uninstaller"]["link"]})\n\n'
-
-    update.message.reply_text("*Latest Magisk Releases:*\n{}".format(releases),
-                              parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+    for type, branch in {
+        "Stable": ["master/stable", "master"],
+        "Beta": ["master/beta", "master"],
+        "Canary": ["canary/canary", "canary"],
+    }.items():
+        data = get(url + branch[0] + ".json").json()
+        if str(type) == "Canary":
+            data["magisk"]["link"] = "https://github.com/topjohnwu/magisk_files/raw/canary/" + data["magisk"]["link"]
+            data["app"]["link"] = "https://github.com/topjohnwu/magisk_files/raw/canary/" + data["app"]["link"]
+            data["uninstaller"]["link"] = "https://github.com/topjohnwu/magisk_files/raw/canary/" + data["uninstaller"]["link"]
+        releases += (
+            f"*{type}*: \n"
+            f"• [Changelog](https://github.com/topjohnwu/magisk_files/blob/{branch[1]}/notes.md)\n"
+            f'• Zip - [{data["magisk"]["version"]}-{data["magisk"]["versionCode"]}]({data["magisk"]["link"]}) \n'
+            f'• App - [{data["app"]["version"]}-{data["app"]["versionCode"]}]({data["app"]["link"]}) \n'
+            f'• Uninstaller - [{data["magisk"]["version"]}-{data["magisk"]["versionCode"]}]({data["uninstaller"]["link"]})\n\n'
+        )
+ 
+    del_msg = update.message.reply_text(
+        "*Latest Magisk Releases:*\n{}".format(releases),
+        parse_mode=ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
+    )
+    time.sleep(300)
+    try:
+        del_msg.delete()
+        update.effective_message.delete()
+    except BadRequest as err:
+        if (err.message == "Message to delete not found") or (
+            err.message == "Message can't be deleted"
+        ):
+            return
 
 
 @spamcheck
