@@ -3,6 +3,7 @@ import importlib
 import re
 import resource
 import platform
+import requests
 import sys
 import traceback
 import wikipedia
@@ -229,10 +230,14 @@ def error_callback(update, context):
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
     # Log the error before we do anything else, so we can see it even if something breaks.
-    LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
-    if isinstance(context.error, SQLAlchemyError) or isinstance(context.error, DBAPIError):
-      return
-    # traceback.format_exception returns the usual python message about an exception, but as a
+    LOGGER.error(
+        msg="Exception while handling an update:", exc_info=context.error
+    )
+    if isinstance(context.error, SQLAlchemyError) or isinstance(
+        context.error, DBAPIError
+    ):
+        return
+   # traceback.format_exception returns the usual python message about an exception, but as a
     # list of strings rather than a single string, so we have to join them together.
     else:
         tb_list = traceback.format_exception(None, context.error, context.error.__traceback__)
@@ -241,24 +246,34 @@ def error_handler(update, context):
     # Build the message with some markup and additional information about what happened.
     # You might need to add some logic to deal with messages longer than the 4096 character limit.
         message = (
-        f'An exception was raised while handling an update\n'
-        f'update = {(json.dumps(update.to_dict(), indent=2, ensure_ascii=False))}'
-        '\n\n'
-        f'context.chat_data = {(str(context.chat_data))}\n\n'
-        f'context.user_data = {(str(context.user_data))}\n\n'
-        f'{(tb_string)}'
-         )
+            f"An exception was raised while handling an update\n"
+            f"update = {(json.dumps(update.to_dict(), indent=2, ensure_ascii=False))}"
+            "\n\n"
+            f"context.chat_data = {(str(context.chat_data))}\n\n"
+            f"context.user_data = {(str(context.user_data))}\n\n"
+            f"{(tb_string)}"
+        )
  
-        key = requests.post(
-                'https://nekobin.com/api/documents', json={
-                "content": message
-            }).json().get('result').get('key')
-        url = f'https://nekobin.com/{key}.py'
-        markup  = InlineKeyboardMarkup([[InlineKeyboardButton("Nekobin", url = url)]])
- 
-    # Finally, send the message
-    context.bot.send_message(chat_id=MESSAGE_DUMP, text="an error has been found here.", reply_markup=markup)
+    context.bot.send_message(chat_id=MESSAGE_DUMP, text="an error has been found here !!!", reply_markup=markup)
+        key = (
+            requests.post(
+                "https://nekobin.com/api/documents", json={"content": message}
+            )
+            .json()
+            .get("result")
+            .get("key")
+        )
+        url = f"https://nekobin.com/{key}.py"
+        markup = InlineKeyboardMarkup(
+            [[InlineKeyboardButton("Nekobin", url=url)]]
+        )
 
+    # Finally, send the message
+    context.bot.send_message(
+        chat_id=MESSAGE_DUMP,
+        text="an error has been found here !!!",
+        reply_markup=markup,
+    )
 
 @run_async
 def help_button(update, context):
