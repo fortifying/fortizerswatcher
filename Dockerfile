@@ -4,6 +4,8 @@ RUN apt install ca-certificates
 
 RUN apt update
 
+# Set timezone
+RUN ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 #
 # Clone repo and prepare working directory
 #
