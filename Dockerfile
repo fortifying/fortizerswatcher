@@ -1,5 +1,7 @@
 FROM heinzdf/fortizerswxtcher:skyfall
 
+# Set timezone
+RUN ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 #
 # Clone repo and prepare working directory
 #
