@@ -171,6 +171,36 @@ def set_title(update, context):
     except BadRequest:
         message.reply_text("I can't set custom title for admins that I didn't promote!")
 
+@run_async
+@bot_admin
+@user_admin
+def setchat_title(update, context):
+    chat = update.effective_chat
+    msg = update.effective_message
+    user = update.effective_user
+    args = context.args
+
+    bot_member = chat.get_member(context.bot.id)
+    if bot_member.can_change_info == False:
+       msg.reply_text("I don't have rights to change chat info!")
+       return
+
+    user_member = chat.get_member(user.id)
+    if user_member.can_change_info == False:
+       msg.reply_text("You don't have enough rights to change chat info!")
+       return
+
+    title = " ".join(args)
+    if not title:
+       msg.reply_text("Enter some text to set new title in your chat!")
+       return
+
+    try:
+       context.bot.set_chat_title(int(chat.id), str(title))
+       msg.reply_text(f"Successfully set <b>{title}</b> as new chat title!", parse_mode=ParseMode.HTML)
+    except:
+           return
+
 
 @run_async
 @spamcheck
@@ -629,6 +659,7 @@ PERMANENT_PIN_HANDLER = MessageHandler(Filters.status_update.pinned_message | Fi
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
  
 SET_TITLE_HANDLER = DisableAbleCommandHandler("settitle", set_title, pass_args=True)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
@@ -640,4 +671,5 @@ dispatcher.add_handler(PERMANENT_PIN_SET_HANDLER)
 dispatcher.add_handler(PERMANENT_PIN_HANDLER)
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
+dispatcher.add_handler(SETCHAT_TITLE_HANDLER)
  
