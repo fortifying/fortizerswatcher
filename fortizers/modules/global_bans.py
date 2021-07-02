@@ -18,7 +18,6 @@ from fortizers import (
 )
 from fortizers.modules.helper_funcs.chat_status import user_admin, is_user_admin
 from fortizers.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from fortizers.modules.helper_funcs.filters import CustomFilters
 from fortizers.modules.helper_funcs.alternate import typing_action, send_action
 from fortizers.modules.sql.users_sql import get_all_chats
  
@@ -440,18 +439,17 @@ GBAN_HANDLER = CommandHandler(
     "gban",
     gban,
     pass_args=True,
-    filters=CustomFilters.sudo_filter | CustomFilters.support_filter,
-)
+    filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
 UNGBAN_HANDLER = CommandHandler(
     "ungban",
     ungban,
     pass_args=True,
-    filters=CustomFilters.sudo_filter | CustomFilters.support_filter,
+    filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
 )
 GBAN_LIST = CommandHandler(
     "gbanlist",
     gbanlist,
-    filters=CustomFilters.sudo_filter | CustomFilters.support_filter,
+    filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
 )
  
 GBAN_STATUS = CommandHandler(

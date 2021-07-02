@@ -15,7 +15,6 @@ from fortizers.modules.disable import DisableAbleCommandHandler
  
 import fortizers.modules.sql.users_sql as sql
 from fortizers import dispatcher, OWNER_ID, SUDO_USERS, SUPPORT_USERS, LOGGER
-from fortizers.modules.helper_funcs.filters import CustomFilters
  
 USERS_GROUP = 4
  
@@ -164,12 +163,12 @@ __mod_name__ = "SpecialOPS"
  
 SNIPE_HANDLER = DisableAbleCommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = DisableAbleCommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
-QUICKSCOPE_HANDLER = DisableAbleCommandHandler("quickscope", quickscope, pass_args=True, filters=CustomFilters.sudo_filter)
-QUICKUNBAN_HANDLER = DisableAbleCommandHandler("quickunban", quickunban, pass_args=True, filters=CustomFilters.sudo_filter)
+QUICKSCOPE_HANDLER = DisableAbleCommandHandler("quickscope", quickscope, pass_args=True, filters=Filters.user(SUDO_USERS))
+QUICKUNBAN_HANDLER = DisableAbleCommandHandler("quickunban", quickunban, pass_args=True, filters=Filters.user(SUDO_USER))
  
 LEAVECHAT_HANDLER = DisableAbleCommandHandler("leavechat", leavechat, pass_args=True, filters=Filters.user(OWNER_ID))
 SLIST_HANDLER = DisableAbleCommandHandler("slist", slist,
-                           filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
+                           filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
  
 dispatcher.add_handler(SNIPE_HANDLER)
 dispatcher.add_handler(BANALL_HANDLER)

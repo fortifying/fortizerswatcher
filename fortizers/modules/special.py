@@ -29,7 +29,6 @@ from fortizers import dispatcher, OWNER_ID, SUDO_USERS, SUPPORT_USERS, WHITELIST
 from fortizers.__main__ import STATS, USER_INFO
 from fortizers.modules.disable import DisableAbleCommandHandler
 from fortizers.modules.helper_funcs.extraction import extract_user
-from fortizers.modules.helper_funcs.filters import CustomFilters
 from fortizers.modules.sql import languages_sql as langsql
 
 from fortizers.modules.languages import tl

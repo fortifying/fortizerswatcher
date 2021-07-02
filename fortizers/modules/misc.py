@@ -22,7 +22,6 @@ from fortizers import dispatcher, OWNER_ID, SUDO_USERS, SUPPORT_USERS, WHITELIST
 from fortizers.__main__ import STATS, USER_INFO
 from fortizers.modules.disable import DisableAbleCommandHandler
 from fortizers.modules.helper_funcs.extraction import extract_user
-from fortizers.modules.helper_funcs.filters import CustomFilters
 from fortizers.modules.helper_funcs.msg_types import get_message_type
 from fortizers.modules.helper_funcs.misc import build_keyboard_alternate
  
@@ -945,13 +944,13 @@ MD_HELP_HANDLER = CommandHandler(
 SUDO_LIST_HANDLER = CommandHandler(
     "sudolist",
     sudo_list,
-    filters=CustomFilters.sudo_filter)
+    filters=Filters.user(SUDO_USERS))
 SUPPORT_LIST_HANDLER = CommandHandler(
     "supportlist",
     support_list,
-    filters=CustomFilters.sudo_filter)
+    filters=Filters.user(SUDO_USERS))
 STATS_HANDLER = CommandHandler(
-    "stats", stats, filters=CustomFilters.sudo_filter)
+    "stats", stats, filters=Filters.user(SUDO_USERS))
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify, pass_args=True)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 SHRUG_HANDLER = DisableAbleCommandHandler(["shrug", "shg"], shrug)
