@@ -20,6 +20,7 @@ RUN apt install -y \
     g++ \
     git \
     aria2 \
+    libpq-dev \
     python3-pip \
     postgresql \
     postgresql-client \
