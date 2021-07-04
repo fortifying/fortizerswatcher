@@ -444,12 +444,13 @@ UNGBAN_HANDLER = CommandHandler(
     "ungban",
     ungban,
     pass_args=True,
-    filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
+    filters=Filters.user(SUDO_USERS + SUPPORT_USERS)
 )
+
 GBAN_LIST = CommandHandler(
     "gbanlist",
     gbanlist,
-    filters=Filters.user(SUDO_USERS + SUPPORT_USERS))
+    filters=Filters.user(SUDO_USERS + SUPPORT_USERS)
 )
  
 GBAN_STATUS = CommandHandler(

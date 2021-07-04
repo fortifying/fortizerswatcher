@@ -9,7 +9,7 @@ from telegram.ext import MessageHandler, Filters, CommandHandler
 from telegram.ext.dispatcher import run_async
 
 import fortizers.modules.sql.users_sql as sql
-from fortizers import dispatcher, OWNER_ID, LOGGER, SUDO_USER
+from fortizers import dispatcher, OWNER_ID, LOGGER, SUDO_USERS
 
 import fortizers.modules.sql.feds_sql as fedsql
 from fortizers.modules import languages
@@ -153,7 +153,7 @@ __mod_name__ = "Users"
 
 BROADCAST_HANDLER = CommandHandler("broadcast", broadcast, filters=Filters.user(OWNER_ID))
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
-CHATLIST_HANDLER = CommandHandler("chatlist", chats, filters=Filters.user(SUDO_USER))
+CHATLIST_HANDLER = CommandHandler("chatlist", chats, filters=Filters.user(SUDO_USERS))
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)

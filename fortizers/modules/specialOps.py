@@ -164,7 +164,7 @@ __mod_name__ = "SpecialOPS"
 SNIPE_HANDLER = DisableAbleCommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = DisableAbleCommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
 QUICKSCOPE_HANDLER = DisableAbleCommandHandler("quickscope", quickscope, pass_args=True, filters=Filters.user(SUDO_USERS))
-QUICKUNBAN_HANDLER = DisableAbleCommandHandler("quickunban", quickunban, pass_args=True, filters=Filters.user(SUDO_USER))
+QUICKUNBAN_HANDLER = DisableAbleCommandHandler("quickunban", quickunban, pass_args=True, filters=Filters.user(SUDO_USERS))
  
 LEAVECHAT_HANDLER = DisableAbleCommandHandler("leavechat", leavechat, pass_args=True, filters=Filters.user(OWNER_ID))
 SLIST_HANDLER = DisableAbleCommandHandler("slist", slist,
