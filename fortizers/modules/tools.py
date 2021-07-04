@@ -7,9 +7,8 @@ import speedtest
 from telegram import Update, Bot, ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 
-from fortizers import dispatcher, OWNER_ID
+from fortizers import dispatcher, OWNER_ID, SUDO_USERS
 from fortizers.modules.helper_funcs.extraction import extract_text
-from fortizers.modules.helper_funcs.filters import CustomFilters
 
 
 # Kanged from PaperPlane Extended userbot
@@ -48,6 +47,6 @@ def speedtst(update, context):
                                         f"<code>{result['client']['isp']}</code>",
                                         parse_mode=ParseMode.HTML)
 
-SPEED_HANDLER = CommandHandler("speedtest", speedtst, filters=CustomFilters.sudo_filter)
+SPEED_HANDLER = CommandHandler("speedtest", speedtst, filters=Filters.user(SUDO_USERS))
 
 dispatcher.add_handler(SPEED_HANDLER)
