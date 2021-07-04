@@ -58,8 +58,6 @@ if ENV:
 		GROUP_BLACKLIST = set(int(x) for x in os.environ.get("GROUP_BLACKLIST", "").split())
 	except ValueError:
 		raise Exception("Your GROUP_BLACKLIST users list does not contain valid integers.")
- 	except AttributeError:
-		GROUP_BLACKLIST = []
 
 	try:
 		WHITELIST_USERS = set(int(x) for x in os.environ.get("WHITELIST_USERS", "").split())
@@ -125,9 +123,7 @@ else:
 		GROUP_BLACKLIST = set(int(x) for x in Config.GROUP_BLACKLIST or [])
 	except ValueError:
 		raise Exception("Your GROUP_BLACKLIST users list does not contain valid integers.")
-	except AttributeError:
-		GROUP_BLACKLIST = []
-
+ 
 	try:
 		WHITELIST_USERS = set(int(x) for x in Config.WHITELIST_USERS or [])
 	except ValueError:
