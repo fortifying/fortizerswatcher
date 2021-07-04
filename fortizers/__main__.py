@@ -575,9 +575,9 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Bot is running..")
+        LOGGER.info("Using long polling.")
         # updater.start_polling(timeout=15, read_latency=4)
-        updater.drop_pending_updates(poll_interval=0.0,
+        updater.start_polling(poll_interval=0.0,
                               timeout=10,
                               clean=True,
                               bootstrap_retries=-1,
