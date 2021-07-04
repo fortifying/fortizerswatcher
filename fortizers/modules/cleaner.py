@@ -72,7 +72,7 @@ __help__ = "cleaner_help"
 __mod_name__ = "Cleaner"
 
 SET_CLEAN_BLUE_TEXT_HANDLER = DisableAbleCommandHandler("cleanbluetext", set_blue_text_must_click, pass_args=True)
-CLEAN_BLUE_TEXT_HANDLER = MessageHandler(Filters.command & Filters.group, clean_blue_text_must_click)
+CLEAN_BLUE_TEXT_HANDLER = MessageHandler(Filters.command & Filters.chat_type.groups, clean_blue_text_must_click)
 
 
 dispatcher.add_handler(SET_CLEAN_BLUE_TEXT_HANDLER)

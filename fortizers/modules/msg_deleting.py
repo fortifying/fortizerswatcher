@@ -92,8 +92,8 @@ __help__ = "msgdel_help"
 
 __mod_name__ = "Purges"
 
-DELETE_HANDLER = CommandHandler("del", del_message, filters=Filters.group)
-PURGE_HANDLER = CommandHandler("purge", purge, filters=Filters.group, pass_args=True)
+DELETE_HANDLER = CommandHandler("del", del_message, filters=Filters.chat_type.groups)
+PURGE_HANDLER = CommandHandler("purge", purge, filters=Filters.chat_type.groups, pass_args=True)
 
 dispatcher.add_handler(DELETE_HANDLER)
 dispatcher.add_handler(PURGE_HANDLER)

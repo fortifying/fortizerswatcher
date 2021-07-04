@@ -490,11 +490,11 @@ __help__ = "bans_help"
 
 __mod_name__ = "Bans"
 
-BAN_HANDLER = DisableAbleCommandHandler(["ban", "sban"], ban, pass_args=True)#, filters=Filters.group)
-TEMPBAN_HANDLER = DisableAbleCommandHandler(["tban", "tempban"], temp_ban, pass_args=True)#, filters=Filters.group)
-KICK_HANDLER = DisableAbleCommandHandler(["kick", "skick"], kick, pass_args=True)#, filters=Filters.group)
-UNBAN_HANDLER = DisableAbleCommandHandler("unban", unban, pass_args=True)#, filters=Filters.group)
-KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.group)
+BAN_HANDLER = DisableAbleCommandHandler(["ban", "sban"], ban, pass_args=True)#, filters=Filters.chat_type.groups)
+TEMPBAN_HANDLER = DisableAbleCommandHandler(["tban", "tempban"], temp_ban, pass_args=True)#, filters=Filters.chat_type.groups)
+KICK_HANDLER = DisableAbleCommandHandler(["kick", "skick"], kick, pass_args=True)#, filters=Filters.chat_type.groups)
+UNBAN_HANDLER = DisableAbleCommandHandler("unban", unban, pass_args=True)#, filters=Filters.chat_type.groups)
+KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.chat_type.groups)
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)

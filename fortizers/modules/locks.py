@@ -548,9 +548,9 @@ __help__ = "locks_help"
 __mod_name__ = "Locks"
  
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("locktypes", locktypes)
-LOCK_HANDLER = CommandHandler("lock", lock, pass_args=True)  # , filters=Filters.group)
-UNLOCK_HANDLER = CommandHandler("unlock", unlock, pass_args=True)  # , filters=Filters.group)
-LOCKED_HANDLER = CommandHandler("locks", list_locks)  # , filters=Filters.group)
+LOCK_HANDLER = CommandHandler("lock", lock, pass_args=True)  # , filters=Filters.chat_type.groups)
+UNLOCK_HANDLER = CommandHandler("unlock", unlock, pass_args=True)  # , filters=Filters.chat_type.groups)
+LOCKED_HANDLER = CommandHandler("locks", list_locks)  # , filters=Filters.chat_type.groups)
 LOCKWARNS_HANDLER = CommandHandler("lockwarns", lock_warns, pass_args=True)
  
 dispatcher.add_handler(LOCK_HANDLER)
@@ -559,5 +559,5 @@ dispatcher.add_handler(LOCKTYPES_HANDLER)
 dispatcher.add_handler(LOCKED_HANDLER)
 dispatcher.add_handler(LOCKWARNS_HANDLER)
  
-dispatcher.add_handler(MessageHandler(Filters.all & Filters.group, del_lockables), PERM_GROUP)
+dispatcher.add_handler(MessageHandler(Filters.all & Filters.chat_type.groups, del_lockables), PERM_GROUP)
  
