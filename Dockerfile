@@ -14,6 +14,12 @@ RUN git clone https://github.com/fortifying/fortizerswatcher.git -b is-wip /root
 WORKDIR /root/fortizers
 
 RUN apt install -y \
+    curl \
+    figlet \
+    gcc \
+    g++ \
+    git \
+    aria2 \
     python3-pip \
     postgresql \
     postgresql-client \
