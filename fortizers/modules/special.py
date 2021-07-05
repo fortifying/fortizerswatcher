@@ -11,7 +11,7 @@ import urbandict
 
 import pyowm
 from pyowm import timeutils, exceptions
-from googletrans import Translator
+from google_trans_new import google_translator, LANGUAGES
 import wikipedia
 from kbbi import KBBI
 import base64
@@ -150,76 +150,35 @@ def ramalan(update, context):
 @run_async
 @spamcheck
 def terjemah(update, context):
-	msg = update.effective_message
-	chat_id = update.effective_chat.id
-	getlang = langsql.get_lang(update.effective_message.from_user.id)
-	try:
-		if msg.reply_to_message and msg.reply_to_message.text:
-			args = update.effective_message.text.split()
-			if len(args) >= 2:
-				target = args[1]
-				if "-" in target:
-					target2 = target.split("-")[1]
-					target = target.split("-")[0]
-				else:
-					target2 = None
-			else:
-				if getlang:
-					target = getlang
-					target2 = None
-				else:
-					raise IndexError
-			teks = msg.reply_to_message.text
-			#teks = deEmojify(teks)
-			exclude_list = UNICODE_EMOJI.keys()
-			for emoji in exclude_list:
-				if emoji in teks:
-					teks = teks.replace(emoji, '')
-			message = update.effective_message
-			trl = Translator()
-			if target2 == None:
-				deteksibahasa = trl.detect(teks)
-				tekstr = trl.translate(teks, dest=target)
-				send_message(update.effective_message, tl(update.effective_message, "Diterjemahkan dari `{}` ke `{}`:\n`{}`").format(deteksibahasa.lang, target, tekstr.text), parse_mode=ParseMode.MARKDOWN)
-			else:
-				tekstr = trl.translate(teks, dest=target2, src=target)
-				send_message(update.effective_message, tl(update.effective_message, "Diterjemahkan dari `{}` ke `{}`:\n`{}`").format(target, target2, tekstr.text), parse_mode=ParseMode.MARKDOWN)
-			
-		else:
-			args = update.effective_message.text.split(None, 2)
-			if len(args) != 1:
-				target = args[1]
-				teks = args[2]
-				target2 = None
-				if "-" in target:
-					target2 = target.split("-")[1]
-					target = target.split("-")[0]
-			else:
-				target = getlang
-				teks = args[1]
-			#teks = deEmojify(teks)
-			exclude_list = UNICODE_EMOJI.keys()
-			for emoji in exclude_list:
-				if emoji in teks:
-					teks = teks.replace(emoji, '')
-			message = update.effective_message
-			trl = Translator()
-			if target2 == None:
-				deteksibahasa = trl.detect(teks)
-				tekstr = trl.translate(teks, dest=target)
-				return send_message(update.effective_message, tl(update.effective_message, "Diterjemahkan dari `{}` ke `{}`:\n`{}`").format(deteksibahasa.lang, target, tekstr.text), parse_mode=ParseMode.MARKDOWN)
-			else:
-				tekstr = trl.translate(teks, dest=target2, src=target)
-				send_message(update.effective_message, tl(update.effective_message, "Diterjemahkan dari `{}` ke `{}`:\n`{}`").format(target, target2, tekstr.text), parse_mode=ParseMode.MARKDOWN)
-	except IndexError:
-		send_message(update.effective_message, tl(update.effective_message, "Balas pesan atau tulis pesan dari bahasa lain untuk "
-											"diterjemahkan kedalam bahasa yang di dituju\n\n"
-											"Contoh: `/tr en-id` untuk menerjemahkan dari Bahasa inggris ke Bahasa Indonesia\n"
-											"Atau gunakan: `/tr id` untuk deteksi otomatis dan menerjemahkannya kedalam bahasa indonesia"), parse_mode="markdown")
-	except ValueError:
-		send_message(update.effective_message, tl(update.effective_message, "Bahasa yang di tuju tidak ditemukan!"))
-	else:
-		return
+    msg = update.effective_message
+    args = context.args
+    lang = " ".join(args)
+    if not lang:
+        lang = "en"
+    try:
+        translate_text = (
+            msg.reply_to_message.text or msg.reply_to_message.caption
+        )
+    except AttributeError:
+        return msg.reply_text("Give me the text to translate!")
+ 
+    ignore_text = UNICODE_EMOJI.keys()
+    for emoji in ignore_text:
+        if emoji in translate_text:
+            translate_text = translate_text.replace(emoji, "")
+ 
+    translator = google_translator()
+    try:
+        translated = translator.translate(translate_text, lang_tgt=lang)
+        source_lan = translator.detect(translate_text)[1].title()
+        des_lan = LANGUAGES.get(lang).title()
+        msg.reply_text(
+            "Translated from {} to {}.\n {}".format(
+                source_lan, des_lan, translated
+            )
+        )
+    except BaseException:
+        msg.reply_text("Error! invalid language code.")
 
 
 @run_async
