@@ -7,7 +7,7 @@ jikanpy
 psycopg2-binary
 feedparser
 pyowm
-google_trans_new
+googletrans
 wikipedia
 Pillow
 alphabet_detector
