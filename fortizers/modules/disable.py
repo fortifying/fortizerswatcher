@@ -261,10 +261,10 @@ if is_module_loaded(FILENAME):
 
     __help__ = "disable_help"
 
-    DISABLE_HANDLER = CommandHandler("disable", disable, pass_args=True)#, filters=Filters.chat_type.groups)
-    ENABLE_HANDLER = CommandHandler("enable", enable, pass_args=True)#, filters=Filters.chat_type.groups)
-    COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands)#, filters=Filters.chat_type.groups)
-    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds)#, filters=Filters.chat_type.groups)
+    DISABLE_HANDLER = CommandHandler("disable", disable, pass_args=True)#, filters=Filters.group)
+    ENABLE_HANDLER = CommandHandler("enable", enable, pass_args=True)#, filters=Filters.group)
+    COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands)#, filters=Filters.group)
+    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds)#, filters=Filters.group)
     DISABLEDEL_HANDLER = CommandHandler("disabledel", disable_del)
 
     dispatcher.add_handler(DISABLE_HANDLER)

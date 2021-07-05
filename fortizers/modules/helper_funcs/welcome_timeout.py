@@ -163,9 +163,9 @@ job = updater.job_queue
 job_timeout_set = job.run_repeating(welcome_timeout, interval=10, first=1)
 job_timeout_set.enabled = True
  
-WELCVERIFY_HANDLER = CommandHandler("welcomeverify", set_verify_welcome, pass_args=True, filters=Filters.chat_type.groups)
-WELTIMEOUT_HANDLER = CommandHandler("wtimeout", set_welctimeout, pass_args=True, filters=Filters.chat_type.groups)
-WELMODE_HANDLER = CommandHandler("wtmode", timeout_mode, pass_args=True, filters=Filters.chat_type.groups)
+WELCVERIFY_HANDLER = CommandHandler("welcomeverify", set_verify_welcome, pass_args=True, filters=Filters.group)
+WELTIMEOUT_HANDLER = CommandHandler("wtimeout", set_welctimeout, pass_args=True, filters=Filters.group)
+WELMODE_HANDLER = CommandHandler("wtmode", timeout_mode, pass_args=True, filters=Filters.group)
  
 dispatcher.add_handler(WELCVERIFY_HANDLER)
 dispatcher.add_handler(WELTIMEOUT_HANDLER)

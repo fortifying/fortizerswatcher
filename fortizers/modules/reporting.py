@@ -367,7 +367,7 @@ __mod_name__ = "Reporting"
  
 __help__ = "reporting_help"
  
-REPORT_HANDLER = CommandHandler("report", report_alt, filters=Filters.chat_type.groups)
+REPORT_HANDLER = CommandHandler("report", report_alt, filters=Filters.group)
 SETTING_HANDLER = CommandHandler("reports", report_setting, pass_args=True)
 ADMIN_REPORT_HANDLER = MessageHandler(Filters.regex("(?i)@admin(s)?"), report_alt)
 Callback_Report = CallbackQueryHandler(button, pattern=r"rp_")

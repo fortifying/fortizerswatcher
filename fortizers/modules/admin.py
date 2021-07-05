@@ -643,23 +643,23 @@ __help__ = "admin_help"
  
 __mod_name__ = "Admin"
  
-PIN_HANDLER = DisableAbleCommandHandler("pin", pin, pass_args=True, filters=Filters.chat_type.groups)
-UNPIN_HANDLER = DisableAbleCommandHandler("unpin", unpin, filters=Filters.chat_type.groups)
-PERMAPIN_HANDLER = DisableAbleCommandHandler("permapin", permapin, filters=Filters.chat_type.groups)
+PIN_HANDLER = DisableAbleCommandHandler("pin", pin, pass_args=True, filters=Filters.group)
+UNPIN_HANDLER = DisableAbleCommandHandler("unpin", unpin, filters=Filters.group)
+PERMAPIN_HANDLER = DisableAbleCommandHandler("permapin", permapin, filters=Filters.group)
  
-INVITE_HANDLER = CommandHandler("invitelink", invite, filters=Filters.chat_type.groups)
+INVITE_HANDLER = CommandHandler("invitelink", invite, filters=Filters.group)
  
-PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, pass_args=True, filters=Filters.chat_type.groups)
-DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, pass_args=True, filters=Filters.chat_type.groups)
+PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, pass_args=True, filters=Filters.group)
+DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, pass_args=True, filters=Filters.group)
  
 PERMANENT_PIN_SET_HANDLER = DisableAbleCommandHandler("permanentpin", permanent_pin_set, pass_args=True,
-                                                      filters=Filters.chat_type.groups)
+                                                      filters=Filters.group)
 PERMANENT_PIN_HANDLER = MessageHandler(Filters.status_update.pinned_message | Filters.user(777000), permanent_pin)
  
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
  
 SET_TITLE_HANDLER = DisableAbleCommandHandler("settitle", set_title, pass_args=True)
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.groups)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
