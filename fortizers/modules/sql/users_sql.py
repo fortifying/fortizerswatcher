@@ -83,6 +83,7 @@ def update_user(user_id, username, chat_id=None, chat_name=None):
 
         if not chat_id or not chat_name:
             SESSION.commit()
+            SESSION.rollback()
             return
 
         chat = SESSION.query(Chats).get(str(chat_id))
